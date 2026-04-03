@@ -72,7 +72,7 @@ async def upload(SOURCE,rag):
             file_path = os.path.join(SOURCE,txt)
             try:
                 #####################################################
-                ### LightRAG報錯不會跳exception 檔案照樣會移
+                ### LightRAG報錯不會跳exception 檔案照樣會移  //修
                 #####################################################
                 with open(file_path,"r",encoding="utf-8") as f:
                     await rag.ainsert(f.read(),file_path = os.path.join(PROCESSED_DIR,txt))
