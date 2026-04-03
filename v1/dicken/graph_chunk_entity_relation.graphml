@@ -1,0 +1,1270 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd">
+  <key id="d13" for="edge" attr.name="truncate" attr.type="string" />
+  <key id="d12" for="edge" attr.name="created_at" attr.type="long" />
+  <key id="d11" for="edge" attr.name="file_path" attr.type="string" />
+  <key id="d10" for="edge" attr.name="source_id" attr.type="string" />
+  <key id="d9" for="edge" attr.name="keywords" attr.type="string" />
+  <key id="d8" for="edge" attr.name="description" attr.type="string" />
+  <key id="d7" for="edge" attr.name="weight" attr.type="double" />
+  <key id="d6" for="node" attr.name="truncate" attr.type="string" />
+  <key id="d5" for="node" attr.name="created_at" attr.type="long" />
+  <key id="d4" for="node" attr.name="file_path" attr.type="string" />
+  <key id="d3" for="node" attr.name="source_id" attr.type="string" />
+  <key id="d2" for="node" attr.name="description" attr.type="string" />
+  <key id="d1" for="node" attr.name="entity_type" attr.type="string" />
+  <key id="d0" for="node" attr.name="entity_id" attr.type="string" />
+  <graph edgedefault="undirected">
+    <node id="New Taipei City">
+      <data key="d0">New Taipei City</data>
+      <data key="d1">location</data>
+      <data key="d2">New Taipei City is a city in Taiwan that launched the New Taipei City Crowdfunding Subsidy Program and whose government provides additional marketing resources.</data>
+      <data key="d3">chunk-2c0392d6b9fa992204426414fd43866d</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1775134036</data>
+      <data key="d6" />
+    </node>
+    <node id="Economic Development Department">
+      <data key="d0">Economic Development Department</data>
+      <data key="d1">organization</data>
+      <data key="d2">The Economic Development Department is a department within the New Taipei City government, led by Sheng Xiaorong, responsible for economic development and implementing the crowdfunding program.</data>
+      <data key="d3">chunk-2c0392d6b9fa992204426414fd43866d</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1775134036</data>
+      <data key="d6" />
+    </node>
+    <node id="Sheng Xiaorong">
+      <data key="d0">Sheng Xiaorong</data>
+      <data key="d1">person</data>
+      <data key="d2">Sheng Xiaorong is the Director-General of the Economic Development Department of New Taipei City.&lt;SEP&gt;The Director of the New Taipei City Government Department of Economic Development.</data>
+      <data key="d3">chunk-2c0392d6b9fa992204426414fd43866d&lt;SEP&gt;chunk-5da080f066020cdaa3662d3326708969</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1775134040</data>
+      <data key="d6" />
+    </node>
+    <node id="New Taipei City Crowdfunding Subsidy Program">
+      <data key="d0">New Taipei City Crowdfunding Subsidy Program</data>
+      <data key="d1">concept</data>
+      <data key="d2">An ongoing initiative launched in 2020 by New Taipei City to assist brands from product verification to market expansion, which has supported 85 teams and raised over NT$245 million cumulatively.</data>
+      <data key="d3">chunk-2c0392d6b9fa992204426414fd43866d</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1775134036</data>
+      <data key="d6" />
+    </node>
+    <node id="115 New Taipei City Crowdfunding Subsidy Program">
+      <data key="d0">115 New Taipei City Crowdfunding Subsidy Program</data>
+      <data key="d1">event</data>
+      <data key="d2">The current annual iteration of the New Taipei City Crowdfunding Subsidy Program, open for applications, which includes AI tool application and brand promotion counseling.</data>
+      <data key="d3">chunk-2c0392d6b9fa992204426414fd43866d</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1775134036</data>
+      <data key="d6" />
+    </node>
+    <node id="AI-Driven Digital Transformation Wave">
+      <data key="d0">AI-Driven Digital Transformation Wave</data>
+      <data key="d1">concept</data>
+      <data key="d2">A global trend driven by Artificial Intelligence that impacts enterprise brands.</data>
+      <data key="d3">chunk-2c0392d6b9fa992204426414fd43866d</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1775134036</data>
+      <data key="d6" />
+    </node>
+    <node id="AI Tool Counseling">
+      <data key="d0">AI Tool Counseling</data>
+      <data key="d1">method</data>
+      <data key="d2">A new component of the 115 New Taipei City Crowdfunding Subsidy Program designed to enhance marketing application efficiency for participating teams.</data>
+      <data key="d3">chunk-2c0392d6b9fa992204426414fd43866d</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1775134036</data>
+      <data key="d6" />
+    </node>
+    <node id="Brand Promotion Counseling">
+      <data key="d0">Brand Promotion Counseling</data>
+      <data key="d1">method</data>
+      <data key="d2">A new component of the 115 New Taipei City Crowdfunding Subsidy Program, combining expert courses and consulting to deepen brand positioning.</data>
+      <data key="d3">chunk-2c0392d6b9fa992204426414fd43866d</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1775134036</data>
+      <data key="d6" />
+    </node>
+    <node id="Application Briefing Session">
+      <data key="d0">Application Briefing Session</data>
+      <data key="d1">event</data>
+      <data key="d2">An event held on April 14th at Banqiao Youth Career Base to provide information about the 115 New Taipei City Crowdfunding Subsidy Program, featuring consultant consultations and a lecture.</data>
+      <data key="d3">chunk-2c0392d6b9fa992204426414fd43866d</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1775134036</data>
+      <data key="d6" />
+    </node>
+    <node id="Banqiao Youth Career Base">
+      <data key="d0">Banqiao Youth Career Base</data>
+      <data key="d1">location</data>
+      <data key="d2">The venue in New Taipei City where the Application Briefing Session for the 115 New Taipei City Crowdfunding Subsidy Program is held.</data>
+      <data key="d3">chunk-2c0392d6b9fa992204426414fd43866d</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1775134036</data>
+      <data key="d6" />
+    </node>
+    <node id="Huo Wan Design Studio">
+      <data key="d0">Huo Wan Design Studio</data>
+      <data key="d1">organization</data>
+      <data key="d2">A design studio that previously participated in the New Taipei City Crowdfunding Subsidy Program, sharing practical experience and successfully raising over NT$6.7 million for their "Taiwanese Can Also Speak" product.</data>
+      <data key="d3">chunk-2c0392d6b9fa992204426414fd43866d</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1775134037</data>
+      <data key="d6" />
+    </node>
+    <node id="Taiwanese Can Also Speak">
+      <data key="d0">Taiwanese Can Also Speak</data>
+      <data key="d1">artifact</data>
+      <data key="d2">An interactive learning set developed by Huo Wan Design Studio, featuring a point-and-read APP and fun mechanisms to foster children's cultural identity, which achieved significant crowdfunding success.</data>
+      <data key="d3">chunk-2c0392d6b9fa992204426414fd43866d</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1775134037</data>
+      <data key="d6" />
+    </node>
+    <node id="NT$245 Million">
+      <data key="d0">NT$245 Million</data>
+      <data key="d1">data</data>
+      <data key="d2">The total cumulative fundraising amount achieved by teams advised under the New Taipei City Crowdfunding Subsidy Program since its inception.</data>
+      <data key="d3">chunk-2c0392d6b9fa992204426414fd43866d</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1775134037</data>
+      <data key="d6" />
+    </node>
+    <node id="NT$50,000">
+      <data key="d0">NT$50,000</data>
+      <data key="d1">data</data>
+      <data key="d2">The amount of additional advertising and marketing resources offered by the New Taipei City government to selected teams in the 115 New Taipei City Crowdfunding Subsidy Program.</data>
+      <data key="d3">chunk-2c0392d6b9fa992204426414fd43866d</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1775134037</data>
+      <data key="d6" />
+    </node>
+    <node id="NT$6.7 Million">
+      <data key="d0">NT$6.7 Million</data>
+      <data key="d1">data</data>
+      <data key="d2">The amount raised during a second crowdfunding round by Huo Wan Design Studio for their "Taiwanese Can Also Speak" product.</data>
+      <data key="d3">chunk-2c0392d6b9fa992204426414fd43866d</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1775134037</data>
+      <data key="d6" />
+    </node>
+    <node id="Crowdfunding Mechanism">
+      <data key="d0">Crowdfunding Mechanism</data>
+      <data key="d1">method</data>
+      <data key="d2">A financial method utilized by New Taipei City to support brands in product development and market entry.</data>
+      <data key="d3">chunk-2c0392d6b9fa992204426414fd43866d</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1775134037</data>
+      <data key="d6" />
+    </node>
+    <node id="Eligible Enterprises">
+      <data key="d0">Eligible Enterprises</data>
+      <data key="d1">organization</data>
+      <data key="d2">Companies, businesses, or factories registered in New Taipei City that are qualified to participate in the 115 New Taipei City Crowdfunding Subsidy Program.</data>
+      <data key="d3">chunk-2c0392d6b9fa992204426414fd43866d</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1775134037</data>
+      <data key="d6" />
+    </node>
+    <node id="Program Website">
+      <data key="d0">Program Website</data>
+      <data key="d1">content</data>
+      <data key="d2">An online platform where information about the New Taipei City Crowdfunding Subsidy Program can be found.</data>
+      <data key="d3">chunk-2c0392d6b9fa992204426414fd43866d</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1775134037</data>
+      <data key="d6" />
+    </node>
+    <node id="02-2700-9599#102 Hotline">
+      <data key="d0">02-2700-9599#102 Hotline</data>
+      <data key="d1">data</data>
+      <data key="d2">A dedicated contact number for inquiries related to the New Taipei City Crowdfunding Subsidy Program.</data>
+      <data key="d3">chunk-2c0392d6b9fa992204426414fd43866d</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1775134037</data>
+      <data key="d6" />
+    </node>
+    <node id="April 14">
+      <data key="d0">April 14</data>
+      <data key="d1">event</data>
+      <data key="d2">The date for the Application Briefing Session of the 115 New Taipei City Crowdfunding Subsidy Program.</data>
+      <data key="d3">chunk-2c0392d6b9fa992204426414fd43866d</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1775134037</data>
+      <data key="d6" />
+    </node>
+    <node id="October 31, 2026">
+      <data key="d0">October 31, 2026</data>
+      <data key="d1">event</data>
+      <data key="d2">The deadline for selected teams in the 115 New Taipei City Crowdfunding Subsidy Program to complete platform listing to qualify for additional marketing resources.</data>
+      <data key="d3">chunk-2c0392d6b9fa992204426414fd43866d</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1775134037</data>
+      <data key="d6" />
+    </node>
+    <node id="Selected Teams">
+      <data key="d0">Selected Teams</data>
+      <data key="d1">organization</data>
+      <data key="d2">Teams chosen for the 115 New Taipei City Crowdfunding Subsidy Program, eligible for various support including additional marketing resources.</data>
+      <data key="d3">chunk-2c0392d6b9fa992204426414fd43866d</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1775134037</data>
+      <data key="d6" />
+    </node>
+    <node id="Marketing Application Efficiency">
+      <data key="d0">Marketing Application Efficiency</data>
+      <data key="d1">concept</data>
+      <data key="d2">The effectiveness of marketing efforts, a focus area for AI Tool Counseling within the program.</data>
+      <data key="d3">chunk-2c0392d6b9fa992204426414fd43866d</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1775134037</data>
+      <data key="d6" />
+    </node>
+    <node id="Brand Positioning">
+      <data key="d0">Brand Positioning</data>
+      <data key="d1">concept</data>
+      <data key="d2">The strategic market placement of a brand, which Brand Promotion Counseling aims to strengthen.</data>
+      <data key="d3">chunk-2c0392d6b9fa992204426414fd43866d</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1775134037</data>
+      <data key="d6" />
+    </node>
+    <node id="Sustainable Design Concepts">
+      <data key="d0">Sustainable Design Concepts</data>
+      <data key="d1">concept</data>
+      <data key="d2">Concepts, alongside AI, that the 115 New Taipei City Crowdfunding Subsidy Program seeks in products or services for selection.</data>
+      <data key="d3">chunk-2c0392d6b9fa992204426414fd43866d</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1775134037</data>
+      <data key="d6" />
+    </node>
+    <node id="Brand Promotion Lecture">
+      <data key="d0">Brand Promotion Lecture</data>
+      <data key="d1">event</data>
+      <data key="d2">A lecture providing insights into brand promotion, offered during the Application Briefing Session.</data>
+      <data key="d3">chunk-2c0392d6b9fa992204426414fd43866d</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1775134037</data>
+      <data key="d6" />
+    </node>
+    <node id="One-on-One Consultant Consultation">
+      <data key="d0">One-on-One Consultant Consultation</data>
+      <data key="d1">method</data>
+      <data key="d2">A free, limited service offering personalized advice to participants at the Application Briefing Session.</data>
+      <data key="d3">chunk-2c0392d6b9fa992204426414fd43866d</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1775134037</data>
+      <data key="d6" />
+    </node>
+    <node id="Initial Crowdfunding Stage">
+      <data key="d0">Initial Crowdfunding Stage</data>
+      <data key="d1">concept</data>
+      <data key="d2">The early phase of a crowdfunding campaign where brand exposure and market attention are critical.</data>
+      <data key="d3">chunk-2c0392d6b9fa992204426414fd43866d</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1775134037</data>
+      <data key="d6" />
+    </node>
+    <node id="85 Teams">
+      <data key="d0">85 Teams</data>
+      <data key="d1">data</data>
+      <data key="d2">The number of teams successfully advised by the New Taipei City Crowdfunding Subsidy Program since 2020.</data>
+      <data key="d3">chunk-2c0392d6b9fa992204426414fd43866d</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1775134037</data>
+      <data key="d6" />
+    </node>
+    <node id="Qingming And Children's Day Holiday">
+      <data key="d0">Qingming And Children's Day Holiday</data>
+      <data key="d1">event</data>
+      <data key="d2">A consecutive holiday period in Taiwan being promoted for various activities.</data>
+      <data key="d3">chunk-5da080f066020cdaa3662d3326708969</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1775134040</data>
+      <data key="d6" />
+    </node>
+    <node id="New Taipei City Government Department Of Economic Development">
+      <data key="d0">New Taipei City Government Department Of Economic Development</data>
+      <data key="d1">organization</data>
+      <data key="d2">A department of the New Taipei City Government responsible for economic development, compiling and promoting holiday offers and activities.</data>
+      <data key="d3">chunk-5da080f066020cdaa3662d3326708969</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1775134040</data>
+      <data key="d6" />
+    </node>
+    <node id="New Taipei">
+      <data key="d0">New Taipei</data>
+      <data key="d1">location</data>
+      <data key="d2">A city in Taiwan, promoted as a destination for holiday activities, shopping, dining, and entertainment.</data>
+      <data key="d3">chunk-5da080f066020cdaa3662d3326708969</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1775134040</data>
+      <data key="d6" />
+    </node>
+    <node id="Investment Attraction">
+      <data key="d0">Investment Attraction</data>
+      <data key="d1">method</data>
+      <data key="d2">A method employed by New Taipei City Government Department of Economic Development to vitalize public land and introduce quality commercial and tourism resources.</data>
+      <data key="d3">chunk-5da080f066020cdaa3662d3326708969</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1775134040</data>
+      <data key="d6" />
+    </node>
+    <node id="Public-Private Collaboration">
+      <data key="d0">Public-Private Collaboration</data>
+      <data key="d1">method</data>
+      <data key="d2">A method employed by New Taipei City Government Department of Economic Development to vitalize public land and introduce quality commercial and tourism resources.</data>
+      <data key="d3">chunk-5da080f066020cdaa3662d3326708969</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1775134040</data>
+      <data key="d6" />
+    </node>
+    <node id="Tamsui Area">
+      <data key="d0">Tamsui Area</data>
+      <data key="d1">location</data>
+      <data key="d2">A region within New Taipei, featured for its holiday activities and hotels.</data>
+      <data key="d3">chunk-5da080f066020cdaa3662d3326708969</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1775134040</data>
+      <data key="d6" />
+    </node>
+    <node id="Fullon Hotel Tamsui Fishermen's Wharf">
+      <data key="d0">Fullon Hotel Tamsui Fishermen's Wharf</data>
+      <data key="d1">organization</data>
+      <data key="d2">A hotel in the Tamsui Area offering a "Spring Tour Tamsui New Style" accommodation package and parent-child activities.</data>
+      <data key="d3">chunk-5da080f066020cdaa3662d3326708969</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1775134040</data>
+      <data key="d6" />
+    </node>
+    <node id="Spring Tour Tamsui New Style">
+      <data key="d0">Spring Tour Tamsui New Style</data>
+      <data key="d1">concept</data>
+      <data key="d2">A special accommodation package offered by Fullon Hotel Tamsui Fishermen's Wharf, including breakfast, afternoon tea, bicycle rental, and souvenir vouchers.</data>
+      <data key="d3">chunk-5da080f066020cdaa3662d3326708969</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1775134040</data>
+      <data key="d6" />
+    </node>
+    <node id="Huwei Art And Cultural Leisure Park">
+      <data key="d0">Huwei Art And Cultural Leisure Park</data>
+      <data key="d1">location</data>
+      <data key="d2">A leisure park in the Tamsui Area that houses the Golden Tulip Fabland Hotel.</data>
+      <data key="d3">chunk-5da080f066020cdaa3662d3326708969</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1775134040</data>
+      <data key="d6" />
+    </node>
+    <node id="Golden Tulip Fabland Hotel">
+      <data key="d0">Golden Tulip Fabland Hotel</data>
+      <data key="d1">organization</data>
+      <data key="d2">A hotel located within Huwei Art and Cultural Leisure Park, offering a "Sandbag Fun Grab" family activity.</data>
+      <data key="d3">chunk-5da080f066020cdaa3662d3326708969</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1775134040</data>
+      <data key="d6" />
+    </node>
+    <node id="Sandbag Fun Grab">
+      <data key="d0">Sandbag Fun Grab</data>
+      <data key="d1">event</data>
+      <data key="d2">A parent-child interaction activity offered by Golden Tulip Fabland Hotel, providing dining discounts.</data>
+      <data key="d3">chunk-5da080f066020cdaa3662d3326708969</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1775134040</data>
+      <data key="d6" />
+    </node>
+    <node id="Lihpao Plaza">
+      <data key="d0">Lihpao Plaza</data>
+      <data key="d1">organization</data>
+      <data key="d2">A plaza offering shopping vouchers during the holiday period.</data>
+      <data key="d3">chunk-5da080f066020cdaa3662d3326708969</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1775134040</data>
+      <data key="d6" />
+    </node>
+    <node id="Banqiao Area">
+      <data key="d0">Banqiao Area</data>
+      <data key="d1">location</data>
+      <data key="d2">A region within New Taipei where hotels offer parent-child dining and experience activities.</data>
+      <data key="d3">chunk-5da080f066020cdaa3662d3326708969</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1775134040</data>
+      <data key="d6" />
+    </node>
+    <node id="Hilton Taipei Sinban">
+      <data key="d0">Hilton Taipei Sinban</data>
+      <data key="d1">organization</data>
+      <data key="d2">A hotel in the Banqiao Area offering a "two adults bring one child free meal" promotion and a DIY afternoon tea activity.</data>
+      <data key="d3">chunk-5da080f066020cdaa3662d3326708969</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1775134040</data>
+      <data key="d6" />
+    </node>
+    <node id="Caesar Park Hotel Banqiao">
+      <data key="d0">Caesar Park Hotel Banqiao</data>
+      <data key="d1">organization</data>
+      <data key="d2">A hotel offering scratch-painting experiences and children's gifts with dining.</data>
+      <data key="d3">chunk-5da080f066020cdaa3662d3326708969</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1775134040</data>
+      <data key="d6" />
+    </node>
+    <node id="Hotel Cham Cham Taipei">
+      <data key="d0">Hotel Cham Cham Taipei</data>
+      <data key="d1">organization</data>
+      <data key="d2">A hotel offering a parent-child accommodation package, including brand gifts and a chance to win prizes.</data>
+      <data key="d3">chunk-5da080f066020cdaa3662d3326708969</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1775134040</data>
+      <data key="d6" />
+    </node>
+    <node id="Honhui Plaza">
+      <data key="d0">Honhui Plaza</data>
+      <data key="d1">organization</data>
+      <data key="d2">A shopping mall offering various discount vouchers and shopping credits during the holiday, including special offers for children's counters.</data>
+      <data key="d3">chunk-5da080f066020cdaa3662d3326708969</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1775134040</data>
+      <data key="d6" />
+    </node>
+    <node id="Showtime Cinemas Lifestyle Store Shulin">
+      <data key="d0">Showtime Cinemas Lifestyle Store Shulin</data>
+      <data key="d1">organization</data>
+      <data key="d2">A lifestyle store offering entertainment vouchers and food vouchers with spending or check-ins.</data>
+      <data key="d3">chunk-5da080f066020cdaa3662d3326708969</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1775134040</data>
+      <data key="d6" />
+    </node>
+    <node id="MITSUI OUTLET PARK Linkou">
+      <data key="d0">MITSUI OUTLET PARK Linkou</data>
+      <data key="d1">organization</data>
+      <data key="d2">An outlet park offering member-exclusive gifts and points redemption activities, combined with various brand offers.</data>
+      <data key="d3">chunk-5da080f066020cdaa3662d3326708969</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1775134040</data>
+      <data key="d6" />
+    </node>
+    <node id="Commercial Investment Projects">
+      <data key="d0">Commercial Investment Projects</data>
+      <data key="d1">concept</data>
+      <data key="d2">Projects involving commercial investment and promotion, often offering holiday discounts and activities.</data>
+      <data key="d3">chunk-5da080f066020cdaa3662d3326708969</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1775134040</data>
+      <data key="d6" />
+    </node>
+    <node id="Parent-Child Activities">
+      <data key="d0">Parent-Child Activities</data>
+      <data key="d1">concept</data>
+      <data key="d2">Activities designed for parents and children to enjoy together, offered by various establishments during the holiday.</data>
+      <data key="d3">chunk-5da080f066020cdaa3662d3326708969</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1775134040</data>
+      <data key="d6" />
+    </node>
+    <node id="Holiday Exclusive Offers">
+      <data key="d0">Holiday Exclusive Offers</data>
+      <data key="d1">concept</data>
+      <data key="d2">Special discounts and promotions available only during the holiday period.</data>
+      <data key="d3">chunk-5da080f066020cdaa3662d3326708969</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1775134040</data>
+      <data key="d6" />
+    </node>
+    <node id="Mixed-Use Complexes">
+      <data key="d0">Mixed-Use Complexes</data>
+      <data key="d1">concept</data>
+      <data key="d2">Venues integrating shopping, dining, accommodation, and entertainment, developed by New Taipei City.</data>
+      <data key="d3">chunk-5da080f066020cdaa3662d3326708969</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1775134040</data>
+      <data key="d6" />
+    </node>
+    <node id="Local Industry Development">
+      <data key="d0">Local Industry Development</data>
+      <data key="d1">concept</data>
+      <data key="d2">An outcome of New Taipei City's economic strategies, leading to growth in local industries.</data>
+      <data key="d3">chunk-5da080f066020cdaa3662d3326708969</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1775134040</data>
+      <data key="d6" />
+    </node>
+    <node id="Employment Opportunities">
+      <data key="d0">Employment Opportunities</data>
+      <data key="d1">concept</data>
+      <data key="d2">An outcome of New Taipei City's economic strategies, leading to the creation of jobs.</data>
+      <data key="d3">chunk-5da080f066020cdaa3662d3326708969</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1775134040</data>
+      <data key="d6" />
+    </node>
+    <node id="Economic Growth Momentum">
+      <data key="d0">Economic Growth Momentum</data>
+      <data key="d1">concept</data>
+      <data key="d2">The driving force behind economic expansion, which New Taipei City aims to inject into the city.</data>
+      <data key="d3">chunk-5da080f066020cdaa3662d3326708969</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1775134040</data>
+      <data key="d6" />
+    </node>
+    <node id="Shopping Credits">
+      <data key="d0">Shopping Credits</data>
+      <data key="d1">concept</data>
+      <data key="d2">Credits that can be used for purchases, offered as part of promotions.</data>
+      <data key="d3">chunk-5da080f066020cdaa3662d3326708969</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1775134040</data>
+      <data key="d6" />
+    </node>
+    <node id="Entertainment Vouchers">
+      <data key="d0">Entertainment Vouchers</data>
+      <data key="d1">artifact</data>
+      <data key="d2">Vouchers that grant access to entertainment experiences, offered as part of promotions.</data>
+      <data key="d3">chunk-5da080f066020cdaa3662d3326708969</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1775134040</data>
+      <data key="d6" />
+    </node>
+    <node id="Food Vouchers">
+      <data key="d0">Food Vouchers</data>
+      <data key="d1">artifact</data>
+      <data key="d2">Vouchers that provide discounts or free items for food, offered as part of promotions.</data>
+      <data key="d3">chunk-5da080f066020cdaa3662d3326708969</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1775134040</data>
+      <data key="d6" />
+    </node>
+    <node id="Brand Gifts">
+      <data key="d0">Brand Gifts</data>
+      <data key="d1">artifact</data>
+      <data key="d2">Promotional gifts bearing a brand's name, offered to guests.</data>
+      <data key="d3">chunk-5da080f066020cdaa3662d3326708969</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1775134040</data>
+      <data key="d6" />
+    </node>
+    <node id="Prize Draw Opportunity">
+      <data key="d0">Prize Draw Opportunity</data>
+      <data key="d1">concept</data>
+      <data key="d2">A chance to win prizes, often offered as an incentive for hotel stays.</data>
+      <data key="d3">chunk-5da080f066020cdaa3662d3326708969</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1775134040</data>
+      <data key="d6" />
+    </node>
+    <node id="Accommodation Value For Money">
+      <data key="d0">Accommodation Value For Money</data>
+      <data key="d1">concept</data>
+      <data key="d2">A measure of how much value a customer gets for the price paid for accommodation.</data>
+      <data key="d3">chunk-5da080f066020cdaa3662d3326708969</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1775134040</data>
+      <data key="d6" />
+    </node>
+    <node id="Official Websites">
+      <data key="d0">Official Websites</data>
+      <data key="d1">content</data>
+      <data key="d2">Online platforms where detailed information about commercial investment projects and holiday activities can be found.</data>
+      <data key="d3">chunk-5da080f066020cdaa3662d3326708969</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1775134041</data>
+      <data key="d6" />
+    </node>
+    <node id="Discount Voucher">
+      <data key="d0">Discount Voucher</data>
+      <data key="d1">artifact</data>
+      <data key="d2">A voucher that provides a discount on purchases, offered as part of promotions by various commercial establishments.</data>
+      <data key="d3">chunk-5da080f066020cdaa3662d3326708969</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1775134041</data>
+      <data key="d6" />
+    </node>
+    <node id="DIY Experience">
+      <data key="d0">DIY Experience</data>
+      <data key="d1">concept</data>
+      <data key="d2">A hands-on activity where participants create something themselves, offered as part of parent-child programs.</data>
+      <data key="d3">chunk-5da080f066020cdaa3662d3326708969</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1775134041</data>
+      <data key="d6" />
+    </node>
+    <node id="Game Vouchers">
+      <data key="d0">Game Vouchers</data>
+      <data key="d1">artifact</data>
+      <data key="d2">Vouchers that can be used for games or entertainment, offered by Fullon Hotel Tamsui Fishermen's Wharf.</data>
+      <data key="d3">chunk-5da080f066020cdaa3662d3326708969</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1775134041</data>
+      <data key="d6" />
+    </node>
+    <node id="Scratch-Painting Experience">
+      <data key="d0">Scratch-Painting Experience</data>
+      <data key="d1">concept</data>
+      <data key="d2">An interactive activity where participants reveal an image by scratching a surface, offered by Caesar Park Hotel Banqiao.</data>
+      <data key="d3">chunk-5da080f066020cdaa3662d3326708969</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1775134041</data>
+      <data key="d6" />
+    </node>
+    <edge source="New Taipei City" target="New Taipei City Crowdfunding Subsidy Program">
+      <data key="d7">1.0</data>
+      <data key="d8">New Taipei City initiates and manages the Crowdfunding Subsidy Program to assist brands.</data>
+      <data key="d9">initiates,manages</data>
+      <data key="d10">chunk-2c0392d6b9fa992204426414fd43866d</data>
+      <data key="d11">unknown_source</data>
+      <data key="d12">1775134037</data>
+      <data key="d13" />
+    </edge>
+    <edge source="New Taipei City" target="Selected Teams">
+      <data key="d7">1.0</data>
+      <data key="d8">New Taipei City provides NT$50,000 in advertising and marketing resources to selected teams.</data>
+      <data key="d9">provides resources to</data>
+      <data key="d10">chunk-2c0392d6b9fa992204426414fd43866d</data>
+      <data key="d11">unknown_source</data>
+      <data key="d12">1775134038</data>
+      <data key="d13" />
+    </edge>
+    <edge source="Economic Development Department" target="New Taipei City Crowdfunding Subsidy Program">
+      <data key="d7">1.0</data>
+      <data key="d8">The Economic Development Department implements and oversees the New Taipei City Crowdfunding Subsidy Program.</data>
+      <data key="d9">implements,oversees</data>
+      <data key="d10">chunk-2c0392d6b9fa992204426414fd43866d</data>
+      <data key="d11">unknown_source</data>
+      <data key="d12">1775134037</data>
+      <data key="d13" />
+    </edge>
+    <edge source="Economic Development Department" target="Sheng Xiaorong">
+      <data key="d7">1.0</data>
+      <data key="d8">Sheng Xiaorong is the Director-General of the Economic Development Department.</data>
+      <data key="d9">Director-General of,leads</data>
+      <data key="d10">chunk-2c0392d6b9fa992204426414fd43866d</data>
+      <data key="d11">unknown_source</data>
+      <data key="d12">1775134038</data>
+      <data key="d13" />
+    </edge>
+    <edge source="Sheng Xiaorong" target="New Taipei City Government Department Of Economic Development">
+      <data key="d7">1.0</data>
+      <data key="d8">Sheng Xiaorong, as the director, states the department's role in economic development.</data>
+      <data key="d9">leadership statement,organizational role</data>
+      <data key="d10">chunk-5da080f066020cdaa3662d3326708969</data>
+      <data key="d11">unknown_source</data>
+      <data key="d12">1775134042</data>
+      <data key="d13" />
+    </edge>
+    <edge source="New Taipei City Crowdfunding Subsidy Program" target="85 Teams">
+      <data key="d7">1.0</data>
+      <data key="d8">The New Taipei City Crowdfunding Subsidy Program has successfully advised 85 teams.</data>
+      <data key="d9">advises,supports</data>
+      <data key="d10">chunk-2c0392d6b9fa992204426414fd43866d</data>
+      <data key="d11">unknown_source</data>
+      <data key="d12">1775134038</data>
+      <data key="d13" />
+    </edge>
+    <edge source="New Taipei City Crowdfunding Subsidy Program" target="NT$245 Million">
+      <data key="d7">1.0</data>
+      <data key="d8">The New Taipei City Crowdfunding Subsidy Program has facilitated the raising of over NT$245 million.</data>
+      <data key="d9">cumulative funding,raised</data>
+      <data key="d10">chunk-2c0392d6b9fa992204426414fd43866d</data>
+      <data key="d11">unknown_source</data>
+      <data key="d12">1775134038</data>
+      <data key="d13" />
+    </edge>
+    <edge source="New Taipei City Crowdfunding Subsidy Program" target="115 New Taipei City Crowdfunding Subsidy Program">
+      <data key="d7">1.0</data>
+      <data key="d8">The 115 New Taipei City Crowdfunding Subsidy Program is the current annual iteration of the broader program.</data>
+      <data key="d9">annual instance of</data>
+      <data key="d10">chunk-2c0392d6b9fa992204426414fd43866d</data>
+      <data key="d11">unknown_source</data>
+      <data key="d12">1775134038</data>
+      <data key="d13" />
+    </edge>
+    <edge source="New Taipei City Crowdfunding Subsidy Program" target="Huo Wan Design Studio">
+      <data key="d7">1.0</data>
+      <data key="d8">Huo Wan Design Studio is a past participant of the New Taipei City Crowdfunding Subsidy Program.</data>
+      <data key="d9">past participant</data>
+      <data key="d10">chunk-2c0392d6b9fa992204426414fd43866d</data>
+      <data key="d11">unknown_source</data>
+      <data key="d12">1775134038</data>
+      <data key="d13" />
+    </edge>
+    <edge source="New Taipei City Crowdfunding Subsidy Program" target="Program Website">
+      <data key="d7">1.0</data>
+      <data key="d8">The Program Website provides information about the New Taipei City Crowdfunding Subsidy Program.</data>
+      <data key="d9">provides information about</data>
+      <data key="d10">chunk-2c0392d6b9fa992204426414fd43866d</data>
+      <data key="d11">unknown_source</data>
+      <data key="d12">1775134038</data>
+      <data key="d13" />
+    </edge>
+    <edge source="New Taipei City Crowdfunding Subsidy Program" target="02-2700-9599#102 Hotline">
+      <data key="d7">1.0</data>
+      <data key="d8">The 02-2700-9599#102 Hotline provides information and service for the New Taipei City Crowdfunding Subsidy Program.</data>
+      <data key="d9">provides information about</data>
+      <data key="d10">chunk-2c0392d6b9fa992204426414fd43866d</data>
+      <data key="d11">unknown_source</data>
+      <data key="d12">1775134038</data>
+      <data key="d13" />
+    </edge>
+    <edge source="115 New Taipei City Crowdfunding Subsidy Program" target="AI Tool Counseling">
+      <data key="d7">1.0</data>
+      <data key="d8">The 115 New Taipei City Crowdfunding Subsidy Program introduces AI Tool Counseling.</data>
+      <data key="d9">includes,introduces</data>
+      <data key="d10">chunk-2c0392d6b9fa992204426414fd43866d</data>
+      <data key="d11">unknown_source</data>
+      <data key="d12">1775134038</data>
+      <data key="d13" />
+    </edge>
+    <edge source="115 New Taipei City Crowdfunding Subsidy Program" target="Brand Promotion Counseling">
+      <data key="d7">1.0</data>
+      <data key="d8">The 115 New Taipei City Crowdfunding Subsidy Program introduces Brand Promotion Counseling.</data>
+      <data key="d9">includes,introduces</data>
+      <data key="d10">chunk-2c0392d6b9fa992204426414fd43866d</data>
+      <data key="d11">unknown_source</data>
+      <data key="d12">1775134038</data>
+      <data key="d13" />
+    </edge>
+    <edge source="115 New Taipei City Crowdfunding Subsidy Program" target="Application Briefing Session">
+      <data key="d7">1.0</data>
+      <data key="d8">The Application Briefing Session provides information and promotes the 115 New Taipei City Crowdfunding Subsidy Program.</data>
+      <data key="d9">informs about,promotes</data>
+      <data key="d10">chunk-2c0392d6b9fa992204426414fd43866d</data>
+      <data key="d11">unknown_source</data>
+      <data key="d12">1775134039</data>
+      <data key="d13" />
+    </edge>
+    <edge source="115 New Taipei City Crowdfunding Subsidy Program" target="Eligible Enterprises">
+      <data key="d7">1.0</data>
+      <data key="d8">Eligible enterprises can participate in the 115 New Taipei City Crowdfunding Subsidy Program.</data>
+      <data key="d9">participates in</data>
+      <data key="d10">chunk-2c0392d6b9fa992204426414fd43866d</data>
+      <data key="d11">unknown_source</data>
+      <data key="d12">1775134039</data>
+      <data key="d13" />
+    </edge>
+    <edge source="115 New Taipei City Crowdfunding Subsidy Program" target="Sustainable Design Concepts">
+      <data key="d7">1.0</data>
+      <data key="d8">The 115 New Taipei City Crowdfunding Subsidy Program seeks products or services incorporating sustainable design concepts.</data>
+      <data key="d9">seeks,selection criteria</data>
+      <data key="d10">chunk-2c0392d6b9fa992204426414fd43866d</data>
+      <data key="d11">unknown_source</data>
+      <data key="d12">1775134039</data>
+      <data key="d13" />
+    </edge>
+    <edge source="AI Tool Counseling" target="Marketing Application Efficiency">
+      <data key="d7">1.0</data>
+      <data key="d8">AI Tool Counseling aims to enhance marketing application efficiency for teams.</data>
+      <data key="d9">enhances</data>
+      <data key="d10">chunk-2c0392d6b9fa992204426414fd43866d</data>
+      <data key="d11">unknown_source</data>
+      <data key="d12">1775134038</data>
+      <data key="d13" />
+    </edge>
+    <edge source="Brand Promotion Counseling" target="Brand Positioning">
+      <data key="d7">1.0</data>
+      <data key="d8">Brand Promotion Counseling aims to strengthen brand positioning for teams.</data>
+      <data key="d9">strengthens</data>
+      <data key="d10">chunk-2c0392d6b9fa992204426414fd43866d</data>
+      <data key="d11">unknown_source</data>
+      <data key="d12">1775134038</data>
+      <data key="d13" />
+    </edge>
+    <edge source="Application Briefing Session" target="Banqiao Youth Career Base">
+      <data key="d7">1.0</data>
+      <data key="d8">The Application Briefing Session is held at Banqiao Youth Career Base.</data>
+      <data key="d9">location</data>
+      <data key="d10">chunk-2c0392d6b9fa992204426414fd43866d</data>
+      <data key="d11">unknown_source</data>
+      <data key="d12">1775134038</data>
+      <data key="d13" />
+    </edge>
+    <edge source="Application Briefing Session" target="April 14">
+      <data key="d7">1.0</data>
+      <data key="d8">The Application Briefing Session is scheduled to be held on April 14.</data>
+      <data key="d9">date</data>
+      <data key="d10">chunk-2c0392d6b9fa992204426414fd43866d</data>
+      <data key="d11">unknown_source</data>
+      <data key="d12">1775134038</data>
+      <data key="d13" />
+    </edge>
+    <edge source="Application Briefing Session" target="Brand Promotion Lecture">
+      <data key="d7">1.0</data>
+      <data key="d8">The Application Briefing Session features a Brand Promotion Lecture.</data>
+      <data key="d9">features,includes</data>
+      <data key="d10">chunk-2c0392d6b9fa992204426414fd43866d</data>
+      <data key="d11">unknown_source</data>
+      <data key="d12">1775134038</data>
+      <data key="d13" />
+    </edge>
+    <edge source="Application Briefing Session" target="One-on-One Consultant Consultation">
+      <data key="d7">1.0</data>
+      <data key="d8">The Application Briefing Session offers free limited One-on-One Consultant Consultation.</data>
+      <data key="d9">features,offers</data>
+      <data key="d10">chunk-2c0392d6b9fa992204426414fd43866d</data>
+      <data key="d11">unknown_source</data>
+      <data key="d12">1775134039</data>
+      <data key="d13" />
+    </edge>
+    <edge source="Huo Wan Design Studio" target="Taiwanese Can Also Speak">
+      <data key="d7">1.0</data>
+      <data key="d8">Huo Wan Design Studio developed the "Taiwanese Can Also Speak" interactive learning set.</data>
+      <data key="d9">developed</data>
+      <data key="d10">chunk-2c0392d6b9fa992204426414fd43866d</data>
+      <data key="d11">unknown_source</data>
+      <data key="d12">1775134038</data>
+      <data key="d13" />
+    </edge>
+    <edge source="Taiwanese Can Also Speak" target="NT$6.7 Million">
+      <data key="d7">1.0</data>
+      <data key="d8">The "Taiwanese Can Also Speak" product successfully raised over NT$6.7 million in crowdfunding.</data>
+      <data key="d9">raised</data>
+      <data key="d10">chunk-2c0392d6b9fa992204426414fd43866d</data>
+      <data key="d11">unknown_source</data>
+      <data key="d12">1775134038</data>
+      <data key="d13" />
+    </edge>
+    <edge source="NT$50,000" target="Initial Crowdfunding Stage">
+      <data key="d7">1.0</data>
+      <data key="d8">The NT$50,000 advertising and marketing resources are provided to assist brands during their initial crowdfunding stage.</data>
+      <data key="d9">provides resources for,supports</data>
+      <data key="d10">chunk-2c0392d6b9fa992204426414fd43866d</data>
+      <data key="d11">unknown_source</data>
+      <data key="d12">1775134038</data>
+      <data key="d13" />
+    </edge>
+    <edge source="October 31, 2026" target="Selected Teams">
+      <data key="d7">1.0</data>
+      <data key="d8">Selected teams must complete platform listing by October 31, 2026, to qualify for additional marketing resources.</data>
+      <data key="d9">deadline for action</data>
+      <data key="d10">chunk-2c0392d6b9fa992204426414fd43866d</data>
+      <data key="d11">unknown_source</data>
+      <data key="d12">1775134038</data>
+      <data key="d13" />
+    </edge>
+    <edge source="Qingming And Children's Day Holiday" target="New Taipei City Government Department Of Economic Development">
+      <data key="d7">1.0</data>
+      <data key="d8">New Taipei City Government Department of Economic Development promotes activities for the Qingming and Children's Day Holiday.</data>
+      <data key="d9">event promotion,holiday activities</data>
+      <data key="d10">chunk-5da080f066020cdaa3662d3326708969</data>
+      <data key="d11">unknown_source</data>
+      <data key="d12">1775134041</data>
+      <data key="d13" />
+    </edge>
+    <edge source="New Taipei City Government Department Of Economic Development" target="New Taipei">
+      <data key="d7">1.0</data>
+      <data key="d8">New Taipei City Government Department of Economic Development invites the public to visit New Taipei.</data>
+      <data key="d9">invites visits,promotes destination</data>
+      <data key="d10">chunk-5da080f066020cdaa3662d3326708969</data>
+      <data key="d11">unknown_source</data>
+      <data key="d12">1775134041</data>
+      <data key="d13" />
+    </edge>
+    <edge source="New Taipei City Government Department Of Economic Development" target="Holiday Exclusive Offers">
+      <data key="d7">1.0</data>
+      <data key="d8">New Taipei City Government Department of Economic Development compiles holiday exclusive offers.</data>
+      <data key="d9">organization,promotion</data>
+      <data key="d10">chunk-5da080f066020cdaa3662d3326708969</data>
+      <data key="d11">unknown_source</data>
+      <data key="d12">1775134041</data>
+      <data key="d13" />
+    </edge>
+    <edge source="New Taipei City Government Department Of Economic Development" target="Parent-Child Activities">
+      <data key="d7">1.0</data>
+      <data key="d8">New Taipei City Government Department of Economic Development compiles parent-child activities.</data>
+      <data key="d9">organization,promotion</data>
+      <data key="d10">chunk-5da080f066020cdaa3662d3326708969</data>
+      <data key="d11">unknown_source</data>
+      <data key="d12">1775134041</data>
+      <data key="d13" />
+    </edge>
+    <edge source="New Taipei City Government Department Of Economic Development" target="Commercial Investment Projects">
+      <data key="d7">1.0</data>
+      <data key="d8">New Taipei City Government Department of Economic Development compiles and promotes various commercial investment projects.</data>
+      <data key="d9">development,promotion</data>
+      <data key="d10">chunk-5da080f066020cdaa3662d3326708969</data>
+      <data key="d11">unknown_source</data>
+      <data key="d12">1775134041</data>
+      <data key="d13" />
+    </edge>
+    <edge source="New Taipei City Government Department Of Economic Development" target="Investment Attraction">
+      <data key="d7">1.0</data>
+      <data key="d8">New Taipei City Government Department of Economic Development uses Investment Attraction to develop the city.</data>
+      <data key="d9">method,strategy</data>
+      <data key="d10">chunk-5da080f066020cdaa3662d3326708969</data>
+      <data key="d11">unknown_source</data>
+      <data key="d12">1775134042</data>
+      <data key="d13" />
+    </edge>
+    <edge source="New Taipei City Government Department Of Economic Development" target="Public-Private Collaboration">
+      <data key="d7">1.0</data>
+      <data key="d8">New Taipei City Government Department of Economic Development uses Public-Private Collaboration to develop the city.</data>
+      <data key="d9">method,strategy</data>
+      <data key="d10">chunk-5da080f066020cdaa3662d3326708969</data>
+      <data key="d11">unknown_source</data>
+      <data key="d12">1775134042</data>
+      <data key="d13" />
+    </edge>
+    <edge source="New Taipei" target="Tamsui Area">
+      <data key="d7">1.0</data>
+      <data key="d8">Tamsui Area is a region within New Taipei.</data>
+      <data key="d9">location,region</data>
+      <data key="d10">chunk-5da080f066020cdaa3662d3326708969</data>
+      <data key="d11">unknown_source</data>
+      <data key="d12">1775134042</data>
+      <data key="d13" />
+    </edge>
+    <edge source="New Taipei" target="Banqiao Area">
+      <data key="d7">1.0</data>
+      <data key="d8">Banqiao Area is a region within New Taipei.</data>
+      <data key="d9">location,region</data>
+      <data key="d10">chunk-5da080f066020cdaa3662d3326708969</data>
+      <data key="d11">unknown_source</data>
+      <data key="d12">1775134042</data>
+      <data key="d13" />
+    </edge>
+    <edge source="New Taipei" target="Honhui Plaza">
+      <data key="d7">1.0</data>
+      <data key="d8">Honhui Plaza is located within New Taipei.</data>
+      <data key="d9">located in,presence</data>
+      <data key="d10">chunk-5da080f066020cdaa3662d3326708969</data>
+      <data key="d11">unknown_source</data>
+      <data key="d12">1775134042</data>
+      <data key="d13" />
+    </edge>
+    <edge source="New Taipei" target="Showtime Cinemas Lifestyle Store Shulin">
+      <data key="d7">1.0</data>
+      <data key="d8">Showtime Cinemas Lifestyle Store Shulin is located within New Taipei.</data>
+      <data key="d9">located in,presence</data>
+      <data key="d10">chunk-5da080f066020cdaa3662d3326708969</data>
+      <data key="d11">unknown_source</data>
+      <data key="d12">1775134043</data>
+      <data key="d13" />
+    </edge>
+    <edge source="New Taipei" target="MITSUI OUTLET PARK Linkou">
+      <data key="d7">1.0</data>
+      <data key="d8">MITSUI OUTLET PARK Linkou is located within New Taipei.</data>
+      <data key="d9">located in,presence</data>
+      <data key="d10">chunk-5da080f066020cdaa3662d3326708969</data>
+      <data key="d11">unknown_source</data>
+      <data key="d12">1775134043</data>
+      <data key="d13" />
+    </edge>
+    <edge source="Investment Attraction" target="Mixed-Use Complexes">
+      <data key="d7">1.0</data>
+      <data key="d8">Investment Attraction helps create Mixed-Use Complexes in New Taipei.</data>
+      <data key="d9">development,economic growth</data>
+      <data key="d10">chunk-5da080f066020cdaa3662d3326708969</data>
+      <data key="d11">unknown_source</data>
+      <data key="d12">1775134042</data>
+      <data key="d13" />
+    </edge>
+    <edge source="Public-Private Collaboration" target="Mixed-Use Complexes">
+      <data key="d7">1.0</data>
+      <data key="d8">Public-Private Collaboration helps create Mixed-Use Complexes in New Taipei.</data>
+      <data key="d9">development,economic growth</data>
+      <data key="d10">chunk-5da080f066020cdaa3662d3326708969</data>
+      <data key="d11">unknown_source</data>
+      <data key="d12">1775134041</data>
+      <data key="d13" />
+    </edge>
+    <edge source="Tamsui Area" target="Fullon Hotel Tamsui Fishermen's Wharf">
+      <data key="d7">1.0</data>
+      <data key="d8">Fullon Hotel Tamsui Fishermen's Wharf is located in the Tamsui Area.</data>
+      <data key="d9">located in,presence</data>
+      <data key="d10">chunk-5da080f066020cdaa3662d3326708969</data>
+      <data key="d11">unknown_source</data>
+      <data key="d12">1775134042</data>
+      <data key="d13" />
+    </edge>
+    <edge source="Tamsui Area" target="Golden Tulip Fabland Hotel">
+      <data key="d7">1.0</data>
+      <data key="d8">Golden Tulip Fabland Hotel is located in the Tamsui Area.</data>
+      <data key="d9">located in,presence</data>
+      <data key="d10">chunk-5da080f066020cdaa3662d3326708969</data>
+      <data key="d11">unknown_source</data>
+      <data key="d12">1775134043</data>
+      <data key="d13" />
+    </edge>
+    <edge source="Tamsui Area" target="Lihpao Plaza">
+      <data key="d7">1.0</data>
+      <data key="d8">Lihpao Plaza is located in the Tamsui Area.</data>
+      <data key="d9">located in,presence</data>
+      <data key="d10">chunk-5da080f066020cdaa3662d3326708969</data>
+      <data key="d11">unknown_source</data>
+      <data key="d12">1775134043</data>
+      <data key="d13" />
+    </edge>
+    <edge source="Fullon Hotel Tamsui Fishermen's Wharf" target="Spring Tour Tamsui New Style">
+      <data key="d7">1.0</data>
+      <data key="d8">Fullon Hotel Tamsui Fishermen's Wharf offers the Spring Tour Tamsui New Style accommodation package.</data>
+      <data key="d9">accommodation,promotion</data>
+      <data key="d10">chunk-5da080f066020cdaa3662d3326708969</data>
+      <data key="d11">unknown_source</data>
+      <data key="d12">1775134041</data>
+      <data key="d13" />
+    </edge>
+    <edge source="Fullon Hotel Tamsui Fishermen's Wharf" target="Parent-Child Activities">
+      <data key="d7">1.0</data>
+      <data key="d8">Fullon Hotel Tamsui Fishermen's Wharf offers parent-child activities.</data>
+      <data key="d9">family activities,promotion</data>
+      <data key="d10">chunk-5da080f066020cdaa3662d3326708969</data>
+      <data key="d11">unknown_source</data>
+      <data key="d12">1775134042</data>
+      <data key="d13" />
+    </edge>
+    <edge source="Fullon Hotel Tamsui Fishermen's Wharf" target="DIY Experience">
+      <data key="d7">1.0</data>
+      <data key="d8">Fullon Hotel Tamsui Fishermen's Wharf offers a DIY experience as part of its parent-child package.</data>
+      <data key="d9">activity,offers</data>
+      <data key="d10">chunk-5da080f066020cdaa3662d3326708969</data>
+      <data key="d11">unknown_source</data>
+      <data key="d12">1775134043</data>
+      <data key="d13" />
+    </edge>
+    <edge source="Fullon Hotel Tamsui Fishermen's Wharf" target="Game Vouchers">
+      <data key="d7">1.0</data>
+      <data key="d8">Fullon Hotel Tamsui Fishermen's Wharf offers game vouchers as part of its parent-child package.</data>
+      <data key="d9">incentives,offers</data>
+      <data key="d10">chunk-5da080f066020cdaa3662d3326708969</data>
+      <data key="d11">unknown_source</data>
+      <data key="d12">1775134043</data>
+      <data key="d13" />
+    </edge>
+    <edge source="Huwei Art And Cultural Leisure Park" target="Golden Tulip Fabland Hotel">
+      <data key="d7">1.0</data>
+      <data key="d8">Golden Tulip Fabland Hotel is located within Huwei Art and Cultural Leisure Park.</data>
+      <data key="d9">location,venue</data>
+      <data key="d10">chunk-5da080f066020cdaa3662d3326708969</data>
+      <data key="d11">unknown_source</data>
+      <data key="d12">1775134042</data>
+      <data key="d13" />
+    </edge>
+    <edge source="Golden Tulip Fabland Hotel" target="Sandbag Fun Grab">
+      <data key="d7">1.0</data>
+      <data key="d8">Golden Tulip Fabland Hotel offers the Sandbag Fun Grab activity.</data>
+      <data key="d9">activity,promotion</data>
+      <data key="d10">chunk-5da080f066020cdaa3662d3326708969</data>
+      <data key="d11">unknown_source</data>
+      <data key="d12">1775134042</data>
+      <data key="d13" />
+    </edge>
+    <edge source="Lihpao Plaza" target="Holiday Exclusive Offers">
+      <data key="d7">1.0</data>
+      <data key="d8">Lihpao Plaza offers holiday exclusive offers, including shopping vouchers.</data>
+      <data key="d9">promotion,shopping</data>
+      <data key="d10">chunk-5da080f066020cdaa3662d3326708969</data>
+      <data key="d11">unknown_source</data>
+      <data key="d12">1775134042</data>
+      <data key="d13" />
+    </edge>
+    <edge source="Lihpao Plaza" target="Discount Voucher">
+      <data key="d7">1.0</data>
+      <data key="d8">Lihpao Plaza offers discount vouchers for spending.</data>
+      <data key="d9">offers,promotion</data>
+      <data key="d10">chunk-5da080f066020cdaa3662d3326708969</data>
+      <data key="d11">unknown_source</data>
+      <data key="d12">1775134043</data>
+      <data key="d13" />
+    </edge>
+    <edge source="Banqiao Area" target="Hilton Taipei Sinban">
+      <data key="d7">1.0</data>
+      <data key="d8">Hilton Taipei Sinban is located in the Banqiao Area.</data>
+      <data key="d9">located in,presence</data>
+      <data key="d10">chunk-5da080f066020cdaa3662d3326708969</data>
+      <data key="d11">unknown_source</data>
+      <data key="d12">1775134042</data>
+      <data key="d13" />
+    </edge>
+    <edge source="Banqiao Area" target="Caesar Park Hotel Banqiao">
+      <data key="d7">1.0</data>
+      <data key="d8">Caesar Park Hotel Banqiao is located in the Banqiao Area.</data>
+      <data key="d9">located in,presence</data>
+      <data key="d10">chunk-5da080f066020cdaa3662d3326708969</data>
+      <data key="d11">unknown_source</data>
+      <data key="d12">1775134043</data>
+      <data key="d13" />
+    </edge>
+    <edge source="Banqiao Area" target="Hotel Cham Cham Taipei">
+      <data key="d7">1.0</data>
+      <data key="d8">Hotel Cham Cham Taipei is located in the Banqiao Area.</data>
+      <data key="d9">located in,presence</data>
+      <data key="d10">chunk-5da080f066020cdaa3662d3326708969</data>
+      <data key="d11">unknown_source</data>
+      <data key="d12">1775134043</data>
+      <data key="d13" />
+    </edge>
+    <edge source="Hilton Taipei Sinban" target="Holiday Exclusive Offers">
+      <data key="d7">1.0</data>
+      <data key="d8">Hilton Taipei Sinban offers holiday exclusive dining offers, including a "two adults bring one child free meal" promotion.</data>
+      <data key="d9">dining,promotion</data>
+      <data key="d10">chunk-5da080f066020cdaa3662d3326708969</data>
+      <data key="d11">unknown_source</data>
+      <data key="d12">1775134042</data>
+      <data key="d13" />
+    </edge>
+    <edge source="Hilton Taipei Sinban" target="Parent-Child Activities">
+      <data key="d7">1.0</data>
+      <data key="d8">Hilton Taipei Sinban organizes parent-child afternoon tea activities.</data>
+      <data key="d9">activity,family engagement</data>
+      <data key="d10">chunk-5da080f066020cdaa3662d3326708969</data>
+      <data key="d11">unknown_source</data>
+      <data key="d12">1775134042</data>
+      <data key="d13" />
+    </edge>
+    <edge source="Caesar Park Hotel Banqiao" target="Parent-Child Activities">
+      <data key="d7">1.0</data>
+      <data key="d8">Caesar Park Hotel Banqiao offers parent-child activities like scratch-painting.</data>
+      <data key="d9">activity,family engagement</data>
+      <data key="d10">chunk-5da080f066020cdaa3662d3326708969</data>
+      <data key="d11">unknown_source</data>
+      <data key="d12">1775134042</data>
+      <data key="d13" />
+    </edge>
+    <edge source="Caesar Park Hotel Banqiao" target="Brand Gifts">
+      <data key="d7">1.0</data>
+      <data key="d8">Caesar Park Hotel Banqiao provides brand gifts to children.</data>
+      <data key="d9">incentives,promotion</data>
+      <data key="d10">chunk-5da080f066020cdaa3662d3326708969</data>
+      <data key="d11">unknown_source</data>
+      <data key="d12">1775134042</data>
+      <data key="d13" />
+    </edge>
+    <edge source="Caesar Park Hotel Banqiao" target="Scratch-Painting Experience">
+      <data key="d7">1.0</data>
+      <data key="d8">Caesar Park Hotel Banqiao offers a scratch-painting experience with dining.</data>
+      <data key="d9">activity,offers</data>
+      <data key="d10">chunk-5da080f066020cdaa3662d3326708969</data>
+      <data key="d11">unknown_source</data>
+      <data key="d12">1775134043</data>
+      <data key="d13" />
+    </edge>
+    <edge source="Hotel Cham Cham Taipei" target="Parent-Child Activities">
+      <data key="d7">1.0</data>
+      <data key="d8">Hotel Cham Cham Taipei offers parent-child accommodation packages.</data>
+      <data key="d9">accommodation,promotion</data>
+      <data key="d10">chunk-5da080f066020cdaa3662d3326708969</data>
+      <data key="d11">unknown_source</data>
+      <data key="d12">1775134042</data>
+      <data key="d13" />
+    </edge>
+    <edge source="Hotel Cham Cham Taipei" target="Prize Draw Opportunity">
+      <data key="d7">1.0</data>
+      <data key="d8">Hotel Cham Cham Taipei offers a prize draw opportunity for guests.</data>
+      <data key="d9">incentives,promotion</data>
+      <data key="d10">chunk-5da080f066020cdaa3662d3326708969</data>
+      <data key="d11">unknown_source</data>
+      <data key="d12">1775134042</data>
+      <data key="d13" />
+    </edge>
+    <edge source="Hotel Cham Cham Taipei" target="Accommodation Value For Money">
+      <data key="d7">1.0</data>
+      <data key="d8">Hotel Cham Cham Taipei enhances accommodation value for money.</data>
+      <data key="d9">customer benefit,service quality</data>
+      <data key="d10">chunk-5da080f066020cdaa3662d3326708969</data>
+      <data key="d11">unknown_source</data>
+      <data key="d12">1775134042</data>
+      <data key="d13" />
+    </edge>
+    <edge source="Hotel Cham Cham Taipei" target="Brand Gifts">
+      <data key="d7">1.0</data>
+      <data key="d8">Hotel Cham Cham Taipei provides brand gifts to guests.</data>
+      <data key="d9">incentives,promotion</data>
+      <data key="d10">chunk-5da080f066020cdaa3662d3326708969</data>
+      <data key="d11">unknown_source</data>
+      <data key="d12">1775134042</data>
+      <data key="d13" />
+    </edge>
+    <edge source="Honhui Plaza" target="Shopping Credits">
+      <data key="d7">1.0</data>
+      <data key="d8">Honhui Plaza offers shopping credits as part of its promotions, specifically for children's counters during Children's Day.</data>
+      <data key="d9">incentives,promotion</data>
+      <data key="d10">chunk-5da080f066020cdaa3662d3326708969</data>
+      <data key="d11">unknown_source</data>
+      <data key="d12">1775134042</data>
+      <data key="d13" />
+    </edge>
+    <edge source="Honhui Plaza" target="Holiday Exclusive Offers">
+      <data key="d7">1.0</data>
+      <data key="d8">Honhui Plaza offers holiday exclusive offers and discount vouchers.</data>
+      <data key="d9">promotion,shopping</data>
+      <data key="d10">chunk-5da080f066020cdaa3662d3326708969</data>
+      <data key="d11">unknown_source</data>
+      <data key="d12">1775134042</data>
+      <data key="d13" />
+    </edge>
+    <edge source="Honhui Plaza" target="Discount Voucher">
+      <data key="d7">1.0</data>
+      <data key="d8">Honhui Plaza offers discount vouchers for spending.</data>
+      <data key="d9">offers,promotion</data>
+      <data key="d10">chunk-5da080f066020cdaa3662d3326708969</data>
+      <data key="d11">unknown_source</data>
+      <data key="d12">1775134043</data>
+      <data key="d13" />
+    </edge>
+    <edge source="Showtime Cinemas Lifestyle Store Shulin" target="Entertainment Vouchers">
+      <data key="d7">1.0</data>
+      <data key="d8">Showtime Cinemas Lifestyle Store Shulin offers entertainment vouchers.</data>
+      <data key="d9">incentives,promotion</data>
+      <data key="d10">chunk-5da080f066020cdaa3662d3326708969</data>
+      <data key="d11">unknown_source</data>
+      <data key="d12">1775134042</data>
+      <data key="d13" />
+    </edge>
+    <edge source="Showtime Cinemas Lifestyle Store Shulin" target="Food Vouchers">
+      <data key="d7">1.0</data>
+      <data key="d8">Showtime Cinemas Lifestyle Store Shulin offers food vouchers.</data>
+      <data key="d9">incentives,promotion</data>
+      <data key="d10">chunk-5da080f066020cdaa3662d3326708969</data>
+      <data key="d11">unknown_source</data>
+      <data key="d12">1775134042</data>
+      <data key="d13" />
+    </edge>
+    <edge source="MITSUI OUTLET PARK Linkou" target="Holiday Exclusive Offers">
+      <data key="d7">1.0</data>
+      <data key="d8">MITSUI OUTLET PARK Linkou offers holiday exclusive offers, including member gifts and points redemption.</data>
+      <data key="d9">promotion,shopping</data>
+      <data key="d10">chunk-5da080f066020cdaa3662d3326708969</data>
+      <data key="d11">unknown_source</data>
+      <data key="d12">1775134042</data>
+      <data key="d13" />
+    </edge>
+    <edge source="Commercial Investment Projects" target="Official Websites">
+      <data key="d7">1.0</data>
+      <data key="d8">Official websites provide detailed information for Commercial Investment Projects.</data>
+      <data key="d9">access,information source</data>
+      <data key="d10">chunk-5da080f066020cdaa3662d3326708969</data>
+      <data key="d11">unknown_source</data>
+      <data key="d12">1775134043</data>
+      <data key="d13" />
+    </edge>
+    <edge source="Mixed-Use Complexes" target="Local Industry Development">
+      <data key="d7">1.0</data>
+      <data key="d8">Mixed-Use Complexes drive Local Industry Development in the city.</data>
+      <data key="d9">development,economic impact</data>
+      <data key="d10">chunk-5da080f066020cdaa3662d3326708969</data>
+      <data key="d11">unknown_source</data>
+      <data key="d12">1775134041</data>
+      <data key="d13" />
+    </edge>
+    <edge source="Mixed-Use Complexes" target="Employment Opportunities">
+      <data key="d7">1.0</data>
+      <data key="d8">Mixed-Use Complexes create Employment Opportunities for citizens.</data>
+      <data key="d9">economic impact,job creation</data>
+      <data key="d10">chunk-5da080f066020cdaa3662d3326708969</data>
+      <data key="d11">unknown_source</data>
+      <data key="d12">1775134041</data>
+      <data key="d13" />
+    </edge>
+    <edge source="Mixed-Use Complexes" target="Economic Growth Momentum">
+      <data key="d7">1.0</data>
+      <data key="d8">Mixed-Use Complexes contribute to Economic Growth Momentum for New Taipei.</data>
+      <data key="d9">economic impact,growth driver</data>
+      <data key="d10">chunk-5da080f066020cdaa3662d3326708969</data>
+      <data key="d11">unknown_source</data>
+      <data key="d12">1775134042</data>
+      <data key="d13" />
+    </edge>
+  </graph>
+</graphml>

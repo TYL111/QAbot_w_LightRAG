@@ -1,0 +1,68 @@
+{
+  "doc-2c0392d6b9fa992204426414fd43866d": {
+    "status": "processed",
+    "chunks_count": 1,
+    "chunks_list": [
+      "chunk-2c0392d6b9fa992204426414fd43866d"
+    ],
+    "content_summary": "﻿【新北市訊】 115年度新北市群眾募資輔導計畫即日起開放徵件，面對AI驅動的全球數位轉型浪潮，如何協助企業品牌精準對接市場成為轉型關鍵！今年首度將AI工具應用納入輔導內容，並結合品牌顧問輔導機制，協助企業落實創意轉化為實際商品或服務，提升市場競爭力。徵件說明會將於4月14日於新北青職基地舉辦，現場還設有免費限量一對一顧問諮詢，誠摯邀請各界創新團隊踴躍報名。\n\n經濟發展局長盛筱蓉表示，新北市持續透過群眾募資機制，協助品牌從產品驗證到市場拓展穩健起步。自109年推動群眾募資輔導計畫以來，已成功輔導...",
+    "content_length": 913,
+    "created_at": "2026-04-02T12:40:48.378593+00:00",
+    "updated_at": "2026-04-02T12:47:19.553677+00:00",
+    "file_path": "unknown_source",
+    "track_id": "insert_20260402_204048_5f998ca5",
+    "metadata": {
+      "processing_start_time": 1775133957,
+      "processing_end_time": 1775134039
+    }
+  },
+  "doc-5da080f066020cdaa3662d3326708969": {
+    "status": "processed",
+    "chunks_count": 1,
+    "chunks_list": [
+      "chunk-5da080f066020cdaa3662d3326708969"
+    ],
+    "content_summary": "【新北市訊】清明及兒童節連假即將到來，出遊行程準備好了嗎？新北市政府經發局特別彙整各大商業招商案推出的連假限定優惠與親子活動，邀請民眾把握假期走訪新北，享受豐富多元的休閒體驗與超值回饋！\n\n經發局長盛筱蓉表示，新北市持續透過招商引資與公私協力，活化公有土地並引進優質商業與觀光資源，打造結合購物、餐飲、住宿與娛樂的複合式場域，不僅滿足市民休閒需求，也帶動地方產業發展與就業機會，持續為城市注入經濟成長動能。\n\n淡水地區連假活動精彩可期，「淡水漁人碼頭福容大飯店」推出「春遊淡水新花樣」住房專案，雙人入...",
+    "content_length": 993,
+    "created_at": "2026-04-02T12:40:48.409750+00:00",
+    "updated_at": "2026-04-02T12:47:23.711123+00:00",
+    "file_path": "unknown_source",
+    "track_id": "insert_20260402_204048_a70b427d",
+    "metadata": {
+      "processing_start_time": 1775133957,
+      "processing_end_time": 1775134043
+    }
+  },
+  "dup-848f5b56516a753887640fd47e854cdb": {
+    "status": "failed",
+    "content_summary": "[DUPLICATE] Original document: doc-2c0392d6b9fa992204426414fd43866d",
+    "content_length": 913,
+    "created_at": "2026-04-02T12:45:57.059020+00:00",
+    "updated_at": "2026-04-02T12:45:57.059024+00:00",
+    "file_path": "unknown_source",
+    "track_id": "insert_20260402_204557_72a34671",
+    "error_msg": "Content already exists. Original doc_id: doc-2c0392d6b9fa992204426414fd43866d, Status: failed",
+    "metadata": {
+      "is_duplicate": true,
+      "original_doc_id": "doc-2c0392d6b9fa992204426414fd43866d",
+      "original_track_id": "insert_20260402_204048_5f998ca5"
+    },
+    "chunks_list": []
+  },
+  "dup-477ce507427cbc07ba019a28fca663c4": {
+    "status": "failed",
+    "content_summary": "[DUPLICATE] Original document: doc-5da080f066020cdaa3662d3326708969",
+    "content_length": 993,
+    "created_at": "2026-04-02T12:47:23.741843+00:00",
+    "updated_at": "2026-04-02T12:47:23.741845+00:00",
+    "file_path": "unknown_source",
+    "track_id": "insert_20260402_204723_59134d40",
+    "error_msg": "Content already exists. Original doc_id: doc-5da080f066020cdaa3662d3326708969, Status: DocStatus.PROCESSED",
+    "metadata": {
+      "is_duplicate": true,
+      "original_doc_id": "doc-5da080f066020cdaa3662d3326708969",
+      "original_track_id": "insert_20260402_204048_a70b427d"
+    },
+    "chunks_list": []
+  }
+}
