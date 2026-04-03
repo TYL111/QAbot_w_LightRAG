@@ -8,6 +8,8 @@ from lightrag.llm.gemini import gemini_model_complete, gemini_embed
 from lightrag.llm.ollama import ollama_embed
 
 
+# Gemini API
+os.environ["GEMINI_API_KEY"] = "YOUR-API"
 
 
 # 初始化rag
