@@ -1,0 +1,59 @@
+{
+  "app": {
+    "title": "新北市經濟發展局 AI 諮詢機器人",
+    "subtitle": "由 LightRAG 驅動的智能問答系統"
+  },
+  "nav": {
+    "chat": "問答",
+    "documents": "文件",
+    "settings": "設定"
+  },
+  "chat": {
+    "placeholder": "請輸入您的問題...",
+    "send": "提送",
+    "loading": "正在查詢中...",
+    "error": "發生錯誤，請稍後重試",
+    "noResults": "未找到相關答案",
+    "sources": "參考資源",
+    "timestamp": "查詢時間"
+  },
+  "documents": {
+    "title": "索引文件",
+    "total": "總文件數",
+    "noDocs": "尚無索引文件",
+    "loading": "載入中...",
+    "column": {
+      "title": "標題",
+      "url": "網址",
+      "length": "字數",
+      "chunks": "片段數"
+    }
+  },
+  "settings": {
+    "title": "設定",
+    "queryMode": "查詢模式",
+    "topK": "Top-K 結果數",
+    "chunkTopK": "片段數量",
+    "maxTokens": "最大令牌數",
+    "refresh": "重新整理",
+    "scrape": "開始爬取",
+    "status": "狀態"
+  },
+  "buttons": {
+    "submit": "提交",
+    "cancel": "取消",
+    "save": "保存",
+    "refresh": "重新整理",
+    "scrape": "爬取網站"
+  },
+  "status": {
+    "initialized": "已初始化",
+    "notInitialized": "未初始化",
+    "running": "運行中"
+  },
+  "errors": {
+    "apiError": "API 錯誤",
+    "networkError": "網路錯誤",
+    "invalidInput": "無效的輸入"
+  }
+}
