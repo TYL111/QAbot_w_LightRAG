@@ -60,31 +60,74 @@ async def get_documents(
 ) -> DocumentsResponse:
     """Get list of indexed documents."""
     try:
-        # In production, would query storage for actual documents
-        # For now, return placeholder
-        docs_path = Path(settings.working_dir) / "docs"
         documents = []
 
-        if docs_path.exists():
-            for idx, doc_file in enumerate(sorted(docs_path.glob("*.txt"))):
+        # Check multiple possible document locations
+        possible_paths = [
+            Path(settings.working_dir) / "data" / "docs",
+            Path(settings.working_dir) / "docs",
+        ]
+
+        docs_path = None
+        for path in possible_paths:
+            if path.exists():
+                docs_path = path
+                logger.info(f"Found documents at: {path}")
+                break
+
+        if not docs_path:
+            logger.info(f"No document directories found. Checked: {possible_paths}")
+            return DocumentsResponse(total=0, documents=[])
+
+        for idx, doc_file in enumerate(sorted(docs_path.glob("*.txt"))):
+            try:
                 with open(doc_file, "r", encoding="utf-8") as f:
                     content = f.read()
-                    # Extract title from content
                     lines = content.split("\n")
-                    title = lines[0].replace("Title: ", "") if lines else f"Document {idx}"
-                    url = lines[1].replace("URL: ", "") if len(lines) > 1 else ""
+
+                    # Extract title and URL with better parsing
+                    title = f"Document {idx}"
+                    url = ""
+
+                    for line in lines[:5]:  # Check first 5 lines
+                        if line.startswith("Title:"):
+                            title = line.replace("Title:", "").strip()
+                            break
+                        elif line.strip() and not url:  # Use first non-empty line as fallback
+                            title = line.strip()[:50]
+
+                    for line in lines[:5]:
+                        if line.startswith("URL:"):
+                            url = line.replace("URL:", "").strip()
+                            break
 
                     documents.append(
                         Document(
                             id=f"doc_{idx}",
-                            title=title,
+                            title=title or f"Document {idx}",
                             url=url,
                             content_length=len(content),
-                            chunks=len(content) // 300,
-                            timestamp=doc_file.stat().st_mtime,
+                            chunks=max(1, len(content) // 300),
+                            timestamp=str(doc_file.stat().st_mtime),
                         )
                     )
+                    logger.debug(f"Parsed doc {idx}: title='{title}' url='{url}'")
+            except Exception as e:
+                logger.warning(f"Error reading {doc_file}: {e}")
+                # Still add document even if parsing fails
+                documents.append(
+                    Document(
+                        id=f"doc_{idx}",
+                        title=f"Document {idx} (parse error)",
+                        url="",
+                        content_length=0,
+                        chunks=0,
+                        timestamp="0",
+                    )
+                )
+                continue
 
+        logger.info(f"Returning {len(documents)} documents")
         return DocumentsResponse(total=len(documents), documents=documents)
     except Exception as e:
         logger.error(f"Error fetching documents: {e}")

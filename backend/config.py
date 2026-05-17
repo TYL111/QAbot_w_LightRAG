@@ -32,7 +32,7 @@ class Settings(BaseSettings):
     max_total_tokens: int = 30000
 
     # Web Scraper
-    scrape_base_url: str = "https://www.economic.ntpc.gov.tw"
+    scrape_base_url: str = 'https://www.economic.ntpc.gov.tw'
     scrape_max_pages: int = 100
     scrape_delay_seconds: float = 2.0
 

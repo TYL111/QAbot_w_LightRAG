@@ -54,6 +54,10 @@ class RAGManager:
         os.environ["NEO4J_USERNAME"] = self.neo4j_username
         os.environ["NEO4J_PASSWORD"] = self.neo4j_password
         os.environ["NEO4J_DATABASE"] = self.neo4j_database
+        
+        # Translate chinese prompt
+        import backend.rag.zh_prompt as zh_prompt
+        zh_prompt.apply_zh_prompt()
 
         # Define LLM function using Gemini
         async def llm_model_func(
@@ -90,7 +94,6 @@ class RAGManager:
             ),
             graph_storage="Neo4JStorage",
         )
-
         # CRITICAL: Initialize storage backends
         await self.rag.initialize_storages()
         self._initialized = True

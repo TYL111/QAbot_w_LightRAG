@@ -10,6 +10,7 @@ lightrag==0.1.7
 selenium==4.25.0
 beautifulsoup4==4.12.3
 requests==2.32.2
+httpx==0.24.1
 
 # Data Processing
 pandas==2.2.2
