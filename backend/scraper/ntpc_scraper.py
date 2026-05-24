@@ -111,7 +111,7 @@ class NTPCEconomicScraper:
             links = []
             for link_elem in soup.find_all("a", href=True):
                 href = link_elem["href"]
-                if "/News/" in href:
+                if "/News/Page" in href:
                     normalized = self._normalize_url(href)
                     if self._is_valid_url(normalized) and normalized not in self.visited_urls:
                         links.append(normalized)

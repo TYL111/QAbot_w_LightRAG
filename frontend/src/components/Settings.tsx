@@ -35,7 +35,7 @@ export function Settings() {
   const handleScrape = async () => {
     setScrapeLoading(true)
     try {
-      await triggerScrape(1)
+      await triggerScrape(100)
       setMessage({ type: 'success', text: '開始爬取網站...' })
     } catch (err: any) {
       setMessage({ type: 'error', text: err.message || '爬取失敗' })
