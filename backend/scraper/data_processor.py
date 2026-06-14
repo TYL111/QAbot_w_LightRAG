@@ -11,20 +11,20 @@ class DataProcessor:
 
     # Keywords to filter out (boilerplate/navigation)
     GARBAGE_KEYWORDS = {
-        "navigation",
-        "sidebar",
-        "menu",
-        "footer",
-        "header",
-        "advertisement",
-        "cookie",
-        "skip to content",
-        "related links",
-        "home",
-        "contact us",
-        "sitemap",
-        "privacy",
-        "terms",
+        "跳到主要內容區",
+        "選單切換",
+        "搜尋",
+        "首頁",
+        "網站導覽",
+        "回上一頁",
+        "關於本局",
+        "機關介紹",
+        "業務職掌",
+        "資訊公開",
+        "企業服務",
+        "快速攻略",
+        "懶人包",
+        "新北市產業地圖"
     }
 
     MIN_CONTENT_LENGTH = 100  # Minimum characters for valid document
