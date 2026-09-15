@@ -68,3 +68,6 @@ Thumbs.db
 # Logs
 logs/
 *.log
+
+problem/
+error_record.txt

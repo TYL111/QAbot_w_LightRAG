@@ -1,4 +1,4 @@
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
 from typing import Optional
 from datetime import datetime
 
@@ -12,12 +12,12 @@ class QueryRequest(BaseModel):
 
 class ScrapeRequest(BaseModel):
     """Request model for scrape endpoint."""
-    max_pages: int = 100
-    delay_seconds: float = 2.0
+    max_pages: Optional[int] = Field(default=None, gt=0)
+    max_depth: Optional[int] = Field(default=None, ge=0)
+    delay_seconds: Optional[float] = Field(default=None, ge=0)
 
 class RefreshRequest(BaseModel):
     """Request model for refresh endpoint."""
-    raw_data_file: Optional[str] = None
     output_dir: Optional[str] = None
 
 # Response Models

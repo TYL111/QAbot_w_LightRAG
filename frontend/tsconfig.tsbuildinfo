@@ -1,0 +1,1 @@
+{"root":["./src/app.tsx","./src/i18n.ts","./src/main.tsx","./src/components/chatinterface.tsx","./src/components/documentbrowser.tsx","./src/components/settings.tsx","./src/hooks/usequery.ts"],"version":"5.9.3"}

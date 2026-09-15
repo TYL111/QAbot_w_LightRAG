@@ -3,9 +3,6 @@ from pathlib import Path
 from pydantic_settings import BaseSettings
 
 class Settings(BaseSettings):
-    # Gemini API
-    gemini_api_key: str
-
     # Ollama
     ollama_base_url: str = "http://localhost:11434"
 
@@ -34,6 +31,7 @@ class Settings(BaseSettings):
     # Web Scraper
     scrape_base_url: str = 'https://www.economic.ntpc.gov.tw'
     scrape_max_pages: int = 100
+    scrape_max_depth: int = 2
     scrape_delay_seconds: float = 2.0
 
     # Logging

@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Settings as SettingsIcon, Loader, CheckCircle, AlertCircle } from 'lucide-react'
-import { fetchStatus, triggerScrape, triggerRefresh } from '../hooks/useQuery'
+import { fetchStatus, fetchRefreshStatus, fetchScrapeStatus, pauseScrape, resumeScrape, triggerScrape, triggerRefresh } from '../hooks/useQuery'
 
 interface Status {
   initialized: boolean
@@ -15,6 +15,15 @@ export function Settings() {
   const [loading, setLoading] = useState(true)
   const [scrapeLoading, setScrapeLoading] = useState(false)
   const [refreshLoading, setRefreshLoading] = useState(false)
+  const [scrapeProgress, setScrapeProgress] = useState<{ running: boolean; paused: boolean; progress: number | null; processed: number; saved: number; pending: number; max_pages: number | null }>({
+    running: false,
+    paused: false,
+    progress: 0,
+    processed: 0,
+    saved: 0,
+    pending: 0,
+    max_pages: null,
+  })
   const [message, setMessage] = useState<{ type: 'success' | 'error'; text: string } | null>(null)
 
   useEffect(() => {
@@ -32,15 +41,60 @@ export function Settings() {
     loadStatus()
   }, [t])
 
+  useEffect(() => {
+    if (!scrapeLoading) return
+
+    const poll = async () => {
+      try {
+        const data = await fetchScrapeStatus()
+        setScrapeProgress(data)
+        if (!data.running) {
+          setScrapeLoading(false)
+          setMessage(data.error
+            ? { type: 'error', text: data.error }
+            : { type: 'success', text: `爬取完成，共儲存 ${data.saved} 頁` })
+        }
+      } catch (err) {
+        setScrapeLoading(false)
+        setMessage({ type: 'error', text: '無法取得爬蟲進度' })
+      }
+    }
+
+    poll()
+    const timer = window.setInterval(poll, 1000)
+    return () => window.clearInterval(timer)
+  }, [scrapeLoading])
+
+  useEffect(() => {
+    if (!refreshLoading) return
+
+    const poll = async () => {
+      try {
+        const data = await fetchRefreshStatus()
+        if (!data.running) {
+          setRefreshLoading(false)
+          setMessage(data.error
+            ? { type: 'error', text: data.error }
+            : { type: 'success', text: '資料重新整理完成' })
+        }
+      } catch (err) {
+        setRefreshLoading(false)
+        setMessage({ type: 'error', text: '無法取得重新整理狀態' })
+      }
+    }
+
+    poll()
+    const timer = window.setInterval(poll, 1000)
+    return () => window.clearInterval(timer)
+  }, [refreshLoading])
+
   const handleScrape = async () => {
     setScrapeLoading(true)
     try {
-      await triggerScrape(100)
+      await triggerScrape()
       setMessage({ type: 'success', text: '開始爬取網站...' })
     } catch (err: any) {
       setMessage({ type: 'error', text: err.message || '爬取失敗' })
-    } finally {
-      setScrapeLoading(false)
     }
   }
 
@@ -51,8 +105,20 @@ export function Settings() {
       setMessage({ type: 'success', text: '開始重新整理數據...' })
     } catch (err: any) {
       setMessage({ type: 'error', text: err.message || '重新整理失敗' })
-    } finally {
-      setRefreshLoading(false)
+    }
+  }
+
+  const handlePauseToggle = async () => {
+    try {
+      if (scrapeProgress.paused) {
+        await resumeScrape()
+      } else {
+        await pauseScrape()
+      }
+      const data = await fetchScrapeStatus()
+      setScrapeProgress(data)
+    } catch (err: any) {
+      setMessage({ type: 'error', text: err.response?.data?.detail || err.message || '無法切換爬取狀態' })
     }
   }
 
@@ -131,6 +197,34 @@ export function Settings() {
                 {t('buttons.scrape')}
               </button>
 
+              {scrapeLoading && (
+                <div className="space-y-2" aria-live="polite">
+                  <button
+                    onClick={handlePauseToggle}
+                    className="w-full border border-blue-600 text-blue-700 px-4 py-2 rounded-lg hover:bg-blue-50"
+                  >
+                    {scrapeProgress.paused ? '繼續爬取' : '暫停爬取'}
+                  </button>
+                  <div className="flex justify-between text-sm text-gray-600">
+                    <span>爬取進度</span>
+                    <span>
+                      {scrapeProgress.progress === null
+                        ? `${scrapeProgress.saved} 頁已完成`
+                        : `${scrapeProgress.progress}%`}
+                    </span>
+                  </div>
+                  <div className="h-3 w-full overflow-hidden rounded-full bg-gray-200">
+                    <div
+                      className={`h-full bg-blue-600 transition-all duration-500 ${scrapeProgress.progress === null ? 'animate-pulse w-1/2' : ''}`}
+                      style={scrapeProgress.progress === null ? undefined : { width: `${scrapeProgress.progress}%` }}
+                    />
+                  </div>
+                  <p className="text-xs text-gray-500">
+                    已處理 {scrapeProgress.processed} 頁，佇列中 {scrapeProgress.pending} 頁
+                  </p>
+                </div>
+              )}
+
               <button
                 onClick={handleRefresh}
                 disabled={refreshLoading}
@@ -144,7 +238,11 @@ export function Settings() {
             </div>
           </div>
         </div>
-      ) : null}
+      ) : (
+        <div className="rounded-lg border border-red-200 bg-red-50 p-4 text-red-800">
+          {message?.text || '無法載入設定狀態'}
+        </div>
+      )}
     </div>
   )
 }

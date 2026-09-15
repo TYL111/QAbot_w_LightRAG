@@ -8,7 +8,7 @@ def apply_zh_prompt():
         *   **Identification:** 辨識輸入文本中定義明確且具有實質意義的實體。
         *   **Entity Details:** 針對每個識別出的實體，提取以下資訊：
             *   `entity_name`: 實體的名稱。若該實體名稱不區分大小寫，請將每個重要單字的首字母大寫（title case）。請確保在整個提取過程中保持**命名一致性**。
-            *   `entity_type`: 使用以下給定的類型之一為實體進行分類：`{entity_types}`。若所有提供的實體類型皆不適用，請勿自行新增實體類型，一律歸類為 `Other`。
+            *   `entity_type`: 使用以下給定的類型之一為實體進行分類：`{entity_types_guidance}`。若所有提供的實體類型皆不適用，請勿自行新增實體類型，一律歸類為 `Other`。
             *   `entity_description`: 根據且*僅根據*輸入文本中的既有資訊，為該實體的屬性與活動提供精簡但完整的描述。
         *   **Output Format - Entities:** 每個實體輸出一行，共包含 4 個欄位，欄位之間使用 `{tuple_delimiter}` 進行分隔。第一個欄位*必須*固定為字串 `entity`。
             *   Format: `entity{tuple_delimiter}entity_name{tuple_delimiter}entity_type{tuple_delimiter}entity_description`
@@ -63,7 +63,7 @@ def apply_zh_prompt():
 
     ---Data to be Processed---
     <Entity_types>
-    [{entity_types}]
+    [{entity_types_guidance}]
 
     <Input Text>
     '''

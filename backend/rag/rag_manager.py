@@ -7,8 +7,7 @@ from typing import Optional
 import numpy as np
 from lightrag import LightRAG, QueryParam
 from lightrag.utils import EmbeddingFunc
-from lightrag.llm.gemini import gemini_model_complete, gemini_embed
-from lightrag.llm.ollama import ollama_embed
+from lightrag.llm.ollama import ollama_embed, ollama_model_complete
 
 logger = logging.getLogger(__name__)
 
@@ -19,7 +18,6 @@ class RAGManager:
         self,
         working_dir: str = "./storage/dicken",
         workspace: str = "ntpc_economic",
-        gemini_api_key: str = "",
         ollama_base_url: str = "http://localhost:11434",
         neo4j_uri: str = "neo4j://127.0.0.1:7687",
         neo4j_username: str = "neo4j",
@@ -28,7 +26,6 @@ class RAGManager:
     ):
         self.working_dir = working_dir
         self.workspace = workspace
-        self.gemini_api_key = gemini_api_key
         self.ollama_base_url = ollama_base_url
         self.neo4j_uri = neo4j_uri
         self.neo4j_username = neo4j_username
@@ -59,7 +56,7 @@ class RAGManager:
         import backend.rag.zh_prompt as zh_prompt
         zh_prompt.apply_zh_prompt()
 
-        # Define LLM function using Gemini
+        # Define LLM function using Ollama
         async def llm_model_func(
             prompt: str,
             system_prompt: Optional[str] = None,
@@ -70,12 +67,14 @@ class RAGManager:
             if history_messages is None:
                 history_messages = []
 
-            return await gemini_model_complete(
+            kwargs.pop("model_name", None)
+            kwargs.setdefault("options", {"num_ctx": 4096})
+
+            return await ollama_model_complete(
                 prompt,
                 system_prompt=system_prompt,
                 history_messages=history_messages,
-                api_key=self.gemini_api_key,
-                model_name="gemini-2.5-flash-lite",
+                host=self.ollama_base_url,
                 **kwargs,
             )
 
@@ -84,15 +83,22 @@ class RAGManager:
             working_dir=self.working_dir,
             workspace=self.workspace,
             llm_model_func=llm_model_func,
-            llm_model_name="gemini-2.5-flash-lite",
+            llm_model_name="qwen2.5-coder:14b",
             embedding_func=EmbeddingFunc(
                 embedding_dim=1024,
                 max_token_size=8192,
                 func=lambda texts: ollama_embed(
-                    texts, model_name="bge-m3", base_url=self.ollama_base_url
+                    texts,
+                    embed_model="bge-m3",
+                    host=self.ollama_base_url,
                 ),
             ),
+            llm_model_max_async=2,
+            embedding_func_max_async=4,
+            max_parallel_insert=2,
             graph_storage="Neo4JStorage",
+            chunk_token_size=512,
+            chunk_overlap_token_size=64,
         )
         # CRITICAL: Initialize storage backends
         await self.rag.initialize_storages()

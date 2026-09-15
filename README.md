@@ -10,7 +10,7 @@ Frontend (React + TypeScript)  ←→  Backend API (FastAPI)  ←→  LightRAG +
 
 - **Frontend**: React 19 + TypeScript + Tailwind CSS + i18next (Traditional Chinese)
 - **Backend**: FastAPI with async support
-- **RAG**: LightRAG with Gemini 2.5 Flash Lite + Ollama BGE-M3 embeddings
+- **RAG**: LightRAG with Ollama Qwen2.5 Coder 14B + BGE-M3 embeddings
 - **Storage**: Neo4j for knowledge graph + JSON for KV storage
 - **Data Source**: Web scraping from https://www.economic.ntpc.gov.tw
 
@@ -20,9 +20,8 @@ Frontend (React + TypeScript)  ←→  Backend API (FastAPI)  ←→  LightRAG +
 
 - Python 3.10+
 - Node.js 18+
-- Ollama (for embeddings: `ollama run bge-m3`)
+- Ollama (for LLM and embeddings: `ollama run qwen2.5-coder:14b` and `ollama run bge-m3`)
 - Neo4j (Docker recommended)
-- Gemini API key (from Google AI Studio)
 
 ### 1. Environment Setup
 
@@ -34,7 +33,6 @@ cd v2
 cp .env.example .env
 
 # Edit .env with your credentials
-# GEMINI_API_KEY=your_key_here
 # NEO4J_PASSWORD=your_password_here
 ```
 
@@ -91,8 +89,8 @@ Frontend will be available at: `http://localhost:5173`
 Once everything is running:
 
 1. **Scrape data**: Visit Settings tab → Click "爬取網站" (Scrape Website)
-   - Saves raw data to `storage/dicken/ntpc_raw.json`
-   - Takes ~5-10 minutes depending on max_pages
+  - Saves cleaned text files to `./data`
+  - Crawling is limited by `max_depth`, `max_pages`, and request delay
 
 2. **Process & Index**: Click "重新整理" (Refresh) in Settings
    - Processes raw data (deduplication, chunking)
@@ -133,8 +131,7 @@ v2/
 │   ├── config.py               # Configuration
 │   ├── dependencies.py         # Dependency injection
 │   ├── scraper/
-│   │   ├── ntpc_scraper.py     # Selenium-based web crawler
-│   │   └── data_processor.py   # Data cleaning & chunking
+│   │   └── crawler.py          # Same-domain HTML crawler and text exporter
 │   ├── rag/
 │   │   └── rag_manager.py      # LightRAG wrapper
 │   └── api/
@@ -188,7 +185,6 @@ v2/
 
 ```env
 # LLM & Embeddings
-GEMINI_API_KEY=                # Required: Google Gemini API key
 OLLAMA_BASE_URL=http://localhost:11434
 
 # Storage
@@ -210,6 +206,7 @@ MAX_TOTAL_TOKENS=30000
 # Web Scraper
 SCRAPE_BASE_URL=https://www.economic.ntpc.gov.tw
 SCRAPE_MAX_PAGES=100
+SCRAPE_MAX_DEPTH=2
 SCRAPE_DELAY_SECONDS=2
 ```
 
@@ -265,7 +262,6 @@ docker build -t ntpc-qa-bot .
 
 # Run container
 docker run -p 8000:8000 \
-  -e GEMINI_API_KEY=xxx \
   -e NEO4J_PASSWORD=xxx \
   ntpc-qa-bot
 ```

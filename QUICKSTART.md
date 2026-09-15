@@ -11,7 +11,7 @@
 ```bash
 # 1. Environment Setup
 cp .env.example .env
-# Edit .env with your Gemini API key and Neo4j password
+# Edit .env with your Neo4j password
 
 # 2. Install Python Dependencies
 pip install -r requirements.txt
@@ -62,7 +62,7 @@ curl -X POST http://localhost:8000/api/refresh
 | `ModuleNotFoundError: backend.config` | Use `./run_backend.sh` or set `PYTHONPATH` |
 | `Connection refused at localhost:11434` | Start Ollama: `ollama serve` |
 | `Neo4j connection failed` | Check Neo4j is running and password matches .env |
-| `GEMINI_API_KEY not found` | Update .env with your Gemini API key |
+| `Ollama model not found` | Run `ollama pull qwen2.5-coder:14b` and `ollama pull bge-m3` |
 | Frontend can't connect to API | Check backend is running on port 8000 |
 
 ## Project Structure

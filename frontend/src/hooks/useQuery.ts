@@ -85,17 +85,32 @@ export async function fetchStatus() {
   }
 }
 
-export async function triggerScrape(maxPages: number = 100) {
+export async function triggerScrape(maxPages?: number) {
   try {
+    const payload = maxPages === undefined ? {} : { max_pages: maxPages }
     const response = await axios.post(`${API_BASE}/scrape`, {
-      max_pages: maxPages,
-      delay_seconds: 2.0
+      ...payload,
     })
     return response.data
   } catch (err) {
     console.error('Error triggering scrape:', err)
     throw err
   }
+}
+
+export async function fetchScrapeStatus() {
+  const response = await axios.get(`${API_BASE}/scrape/status`)
+  return response.data
+}
+
+export async function pauseScrape() {
+  const response = await axios.post(`${API_BASE}/scrape/pause`)
+  return response.data
+}
+
+export async function resumeScrape() {
+  const response = await axios.post(`${API_BASE}/scrape/resume`)
+  return response.data
 }
 
 export async function triggerRefresh() {
@@ -106,4 +121,9 @@ export async function triggerRefresh() {
     console.error('Error triggering refresh:', err)
     throw err
   }
+}
+
+export async function fetchRefreshStatus() {
+  const response = await axios.get(`${API_BASE}/refresh/status`)
+  return response.data
 }

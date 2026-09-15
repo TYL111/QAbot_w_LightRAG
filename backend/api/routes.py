@@ -1,11 +1,11 @@
 import logging
+import asyncio
 from datetime import datetime
 from pathlib import Path
 
 from fastapi import APIRouter, Depends, HTTPException, BackgroundTasks
 from backend.rag.rag_manager import RAGManager
-from backend.scraper.ntpc_scraper import NTPCEconomicScraper
-from backend.scraper.data_processor import DataProcessor
+from backend.scraper.crawler import Crawler
 from backend.config import settings
 from backend.dependencies import get_rag
 from backend.api.schemas import (
@@ -24,7 +24,19 @@ logger = logging.getLogger(__name__)
 router = APIRouter(prefix="/api", tags=["rag"])
 
 # Global state for background tasks
-_scrape_status = {"running": False, "progress": 0}
+_scrape_status = {
+    "running": False,
+    "progress": 0,
+    "processed": 0,
+    "saved": 0,
+    "pending": 0,
+    "max_pages": None,
+    "error": None,
+    "paused": False,
+}
+_active_crawler: Crawler | None = None
+_scrape_pause_event: asyncio.Event | None = None
+_refresh_status = {"running": False, "error": None}
 
 @router.post("/query", response_model=QueryResponse)
 async def query(
@@ -64,6 +76,7 @@ async def get_documents(
 
         # Check multiple possible document locations
         possible_paths = [
+            Path("./data"),
             Path(settings.working_dir) / "data" / "docs",
             Path(settings.working_dir) / "docs",
         ]
@@ -143,32 +156,78 @@ async def scrape(
         raise HTTPException(status_code=409, detail="Scraping already in progress")
 
     try:
+        max_pages = (
+            request.max_pages
+            if request.max_pages is not None
+            else settings.scrape_max_pages
+        )
+        max_depth = request.max_depth if request.max_depth is not None else settings.scrape_max_depth
+        delay_seconds = (
+            request.delay_seconds
+            if request.delay_seconds is not None
+            else settings.scrape_delay_seconds
+        )
+        logger.info(
+            "Scrape requested: max_pages=%s, max_depth=%s, delay_seconds=%s",
+            max_pages,
+            max_depth,
+            delay_seconds,
+        )
+        _scrape_status.update(
+            running=True,
+            progress=0,
+            processed=0,
+            saved=0,
+            pending=1,
+            max_pages=max_pages,
+            error=None,
+            paused=False,
+        )
+
         async def run_scrape():
+            global _active_crawler, _scrape_pause_event
             _scrape_status["running"] = True
             _scrape_status["progress"] = 0
+            _scrape_status["processed"] = 0
+            _scrape_status["saved"] = 0
+            _scrape_status["pending"] = 1
+            _scrape_status["max_pages"] = max_pages
+            _scrape_status["error"] = None
+            _scrape_pause_event = asyncio.Event()
+            _scrape_pause_event.set()
+
+            def update_progress(processed: int, saved: int, pending: int) -> None:
+                _scrape_status["processed"] = processed
+                _scrape_status["saved"] = saved
+                _scrape_status["pending"] = pending
+                _scrape_status["progress"] = round(processed / max_pages * 100, 1)
 
             try:
-                scraper = NTPCEconomicScraper(
-                    base_url=settings.scrape_base_url,
-                    max_pages=request.max_pages,
-                    delay_seconds=request.delay_seconds,
+                crawler = Crawler(
+                    root_url=settings.scrape_base_url,
+                    output_dir="./data",
+                    max_depth=max_depth,
+                    max_pages=max_pages,
+                    delay_seconds=delay_seconds,
+                    progress_callback=update_progress,
+                    pause_event=_scrape_pause_event,
                 )
+                _active_crawler = crawler
 
-                # Create output directory
-                output_dir = Path(settings.working_dir)
-                output_dir.mkdir(parents=True, exist_ok=True)
-                output_file = output_dir / "ntpc_raw.json"
-
-                await scraper.scrape_and_save(str(output_file))
+                saved_files = await crawler.crawl_and_save()
                 _scrape_status["progress"] = 100
-                logger.info(f"Scraping completed: {output_file}")
+                logger.info("Crawling completed: %s files saved to ./data", len(saved_files))
 
             except Exception as e:
                 logger.error(f"Scraping error: {e}")
+                _scrape_status["error"] = str(e)
                 _scrape_status["running"] = False
                 raise
             finally:
                 _scrape_status["running"] = False
+                _scrape_status["paused"] = False
+                _active_crawler = None
+                _scrape_pause_event = None
 
         background_tasks.add_task(run_scrape)
 
@@ -180,6 +239,29 @@ async def scrape(
         logger.error(f"Scrape endpoint error: {e}")
         raise HTTPException(status_code=500, detail=str(e))
 
+@router.post("/scrape/pause")
+async def pause_scrape() -> dict:
+    if not _scrape_status["running"] or _scrape_pause_event is None:
+        raise HTTPException(status_code=409, detail="No active scrape to pause")
+    _scrape_pause_event.clear()
+    _scrape_status["paused"] = True
+    logger.info("Scraping paused")
+    return {"status": "paused"}
+
+@router.post("/scrape/resume")
+async def resume_scrape() -> dict:
+    if not _scrape_status["running"] or _scrape_pause_event is None:
+        raise HTTPException(status_code=409, detail="No active scrape to resume")
+    _scrape_pause_event.set()
+    _scrape_status["paused"] = False
+    logger.info("Scraping resumed")
+    return {"status": "resumed"}
+
+@router.get("/scrape/status")
+async def get_scrape_status() -> dict:
+    """Return the current scraper progress."""
+    return dict(_scrape_status)
+
 @router.post("/refresh")
 async def refresh(
     request: RefreshRequest,
@@ -188,24 +270,27 @@ async def refresh(
 ) -> dict:
     """Rebuild RAG from latest raw data."""
     try:
+        if _refresh_status["running"]:
+            raise HTTPException(status_code=409, detail="Refresh already in progress")
+
+        _refresh_status.update(running=True, error=None)
+
         async def run_refresh():
             try:
-                raw_file = request.raw_data_file or Path(settings.working_dir) / "ntpc_raw.json"
-                output_dir = request.output_dir or str(Path(settings.working_dir) / "data")
+                output_dir = request.output_dir or "./data"
+                docs_dir = Path(output_dir)
+                if not docs_dir.exists():
+                    raise FileNotFoundError(f"Crawler output directory not found: {docs_dir}")
 
-                # Process raw data
-                logger.info(f"Processing raw data from {raw_file}")
-                cleaned_data = DataProcessor.load_and_process(str(raw_file), output_dir)
-
-                # Insert into RAG
-                docs_dir = Path(output_dir) / "docs"
-                if docs_dir.exists():
-                    await rag.insert_from_files(str(docs_dir))
+                await rag.insert_from_files(str(docs_dir))
 
                 logger.info("Refresh completed")
             except Exception as e:
                 logger.error(f"Refresh error: {e}")
+                _refresh_status["error"] = str(e)
                 raise
+            finally:
+                _refresh_status["running"] = False
 
         background_tasks.add_task(run_refresh)
 
@@ -216,6 +301,11 @@ async def refresh(
     except Exception as e:
         logger.error(f"Refresh endpoint error: {e}")
         raise HTTPException(status_code=500, detail=str(e))
+
+@router.get("/refresh/status")
+async def get_refresh_status() -> dict:
+    """Return the current refresh status."""
+    return dict(_refresh_status)
 
 @router.get("/status", response_model=StatusResponse)
 async def get_status(
@@ -240,6 +330,7 @@ async def get_config() -> dict:
     return {
         "scrape_base_url": settings.scrape_base_url,
         "scrape_max_pages": settings.scrape_max_pages,
+        "scrape_max_depth": settings.scrape_max_depth,
         "working_dir": settings.working_dir,
         "top_k": settings.top_k,
         "chunk_top_k": settings.chunk_top_k,

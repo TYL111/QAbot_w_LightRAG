@@ -29,7 +29,6 @@ async def lifespan(app: FastAPI):
         rag_manager = RAGManager(
             working_dir=settings.working_dir,
             workspace=settings.workspace,
-            gemini_api_key=settings.gemini_api_key,
             ollama_base_url=settings.ollama_base_url,
             neo4j_uri=settings.neo4j_uri,
             neo4j_username=settings.neo4j_username,
