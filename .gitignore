@@ -69,5 +69,11 @@ Thumbs.db
 logs/
 *.log
 
+#error
 problem/
 error_record.txt
+
+#test
+batch_test.py
+LightRAG_batch_test.csv
+questions.csv

@@ -70,11 +70,11 @@ class Crawler:
         if content is None:
             return None
 
-        for element in content.select(
-            "script, style, noscript, nav, header, footer, aside, form, "
-            ".menu, .navbar, .navigation, .breadcrumb, .sidebar, .cookie"
-        ):
-            element.decompose()
+        # for element in content.select(
+        #     "script, style, noscript, nav, header, footer, aside, form, "
+        #     ".menu, .navbar, .navigation, .breadcrumb, .sidebar, .cookie"
+        # ):
+        #     element.decompose()
 
         text = content.get_text(" ", strip=True)
         lines = [re.sub(r"\s+", " ", line).strip() for line in text.splitlines()]

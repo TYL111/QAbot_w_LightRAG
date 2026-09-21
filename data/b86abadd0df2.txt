@@ -1,0 +1,4 @@
+Title: Transfer Registration - 新北市經濟發展局
+URL: https://www.economic.ntpc.gov.tw/Api/TransferRegistration/Company
+
+::: 首頁 企業服務 登記專區 代轉營業登記查詢 公司代轉營業登記查詢 公司代轉營業登記查詢 請擇一輸入公司之以下資訊 統一編號 公司名稱 查詢

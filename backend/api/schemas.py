@@ -2,13 +2,15 @@ from pydantic import BaseModel, Field
 from typing import Optional
 from datetime import datetime
 
+from backend.config import settings
+
 # Request Models
 class QueryRequest(BaseModel):
     """Request model for query endpoint."""
     question: str
     mode: str = "hybrid"  # local, global, hybrid, mix, naive
-    top_k: int = 60
-    chunk_top_k: int = 20
+    top_k: int = Field(default_factory=lambda: settings.top_k)
+    chunk_top_k: int = Field(default_factory=lambda: settings.chunk_top_k)
 
 class ScrapeRequest(BaseModel):
     """Request model for scrape endpoint."""

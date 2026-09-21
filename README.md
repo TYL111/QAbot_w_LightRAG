@@ -2,6 +2,8 @@
 
 A modern, modular QA system for New Taipei City (NTPC) Economic Development Bureau powered by LightRAG, featuring web scraping, RAG-based retrieval, and a web-based UI.
 
+For a faster local setup, see [QUICKSTART.md](QUICKSTART.md).
+
 ## Architecture
 
 ```

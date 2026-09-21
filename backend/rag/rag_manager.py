@@ -9,6 +9,8 @@ from lightrag import LightRAG, QueryParam
 from lightrag.utils import EmbeddingFunc
 from lightrag.llm.ollama import ollama_embed, ollama_model_complete
 
+from backend.config import settings
+
 logger = logging.getLogger(__name__)
 
 class RAGManager:
@@ -68,7 +70,7 @@ class RAGManager:
                 history_messages = []
 
             kwargs.pop("model_name", None)
-            kwargs.setdefault("options", {"num_ctx": 4096})
+            kwargs.setdefault("options", {"num_ctx": 12288})
 
             return await ollama_model_complete(
                 prompt,
@@ -83,7 +85,7 @@ class RAGManager:
             working_dir=self.working_dir,
             workspace=self.workspace,
             llm_model_func=llm_model_func,
-            llm_model_name="qwen2.5-coder:14b",
+            llm_model_name="qwen2.5:14b",
             embedding_func=EmbeddingFunc(
                 embedding_dim=1024,
                 max_token_size=8192,
@@ -130,15 +132,29 @@ class RAGManager:
         self,
         question: str,
         mode: str = "hybrid",
-        top_k: int = 60,
-        chunk_top_k: int = 20,
-        max_entity_tokens: int = 6000,
-        max_relation_tokens: int = 8000,
-        max_total_tokens: int = 30000,
+        top_k: Optional[int] = None,
+        chunk_top_k: Optional[int] = None,
+        max_entity_tokens: Optional[int] = None,
+        max_relation_tokens: Optional[int] = None,
+        max_total_tokens: Optional[int] = None,
     ) -> dict:
         """Query the RAG system."""
         if not self._initialized:
             raise RuntimeError("RAG not initialized. Call initialize() first.")
+
+        top_k = settings.top_k if top_k is None else top_k
+        chunk_top_k = settings.chunk_top_k if chunk_top_k is None else chunk_top_k
+        max_entity_tokens = (
+            settings.max_entity_tokens if max_entity_tokens is None else max_entity_tokens
+        )
+        max_relation_tokens = (
+            settings.max_relation_tokens
+            if max_relation_tokens is None
+            else max_relation_tokens
+        )
+        max_total_tokens = (
+            settings.max_total_tokens if max_total_tokens is None else max_total_tokens
+        )
 
         logger.info(f"Querying with mode={mode}, question={question[:50]}...")
 
