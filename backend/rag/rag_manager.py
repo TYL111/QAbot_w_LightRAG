@@ -7,9 +7,12 @@ from typing import Optional
 import numpy as np
 from lightrag import LightRAG, QueryParam
 from lightrag.utils import EmbeddingFunc
-from lightrag.llm.ollama import ollama_embed, ollama_model_complete
+from lightrag.llm.ollama import ollama_embed
+from lightrag.llm.openai import openai_complete_if_cache
 
 from backend.config import settings
+from backend.documents import TEXT_SUFFIXES, list_document_files
+from backend.rag.mineru_importer import MinerUImporter
 
 logger = logging.getLogger(__name__)
 
@@ -25,6 +28,9 @@ class RAGManager:
         neo4j_username: str = "neo4j",
         neo4j_password: str = "",
         neo4j_database: str = "neo4j",
+        openai_api_key: str = "",
+        openai_model: str = "gpt-4.1-mini",
+        openai_base_url: str = "https://api.openai.com/v1",
     ):
         self.working_dir = working_dir
         self.workspace = workspace
@@ -33,9 +39,13 @@ class RAGManager:
         self.neo4j_username = neo4j_username
         self.neo4j_password = neo4j_password
         self.neo4j_database = neo4j_database
+        self.openai_api_key = openai_api_key.strip()
+        self.openai_model = openai_model
+        self.openai_base_url = openai_base_url
 
         self.rag: Optional[LightRAG] = None
         self._initialized = False
+        self.mineru_importer = MinerUImporter(settings)
 
     async def initialize(self) -> None:
         """Initialize LightRAG instance."""
@@ -43,10 +53,14 @@ class RAGManager:
             logger.warning("RAG already initialized")
             return
 
-        logger.info(f"Initializing RAG with working_dir={self.working_dir}")
+        if not self.openai_api_key or self.openai_api_key == "your_openai_api_key_here":
+            raise ValueError("Set OPENAI_API_KEY in .env before starting the RAG system.")
+
+        logger.info(f"Initializing RAG with working_dir={self.working_dir}, model={self.openai_model}")
 
         # Create working directory
         Path(self.working_dir).mkdir(parents=True, exist_ok=True)
+        self.mineru_importer.configure()
 
         # Set Neo4j environment variables
         os.environ["NEO4J_URI"] = self.neo4j_uri
@@ -58,7 +72,7 @@ class RAGManager:
         import backend.rag.zh_prompt as zh_prompt
         zh_prompt.apply_zh_prompt()
 
-        # Define LLM function using Ollama
+        # Use OpenAI for generation and extraction; keep Ollama for embeddings.
         async def llm_model_func(
             prompt: str,
             system_prompt: Optional[str] = None,
@@ -70,13 +84,16 @@ class RAGManager:
                 history_messages = []
 
             kwargs.pop("model_name", None)
-            kwargs.setdefault("options", {"num_ctx": 12288})
+            if keyword_extraction:
+                kwargs.setdefault("response_format", {"type": "json_object"})
 
-            return await ollama_model_complete(
+            return await openai_complete_if_cache(
+                self.openai_model,
                 prompt,
                 system_prompt=system_prompt,
                 history_messages=history_messages,
-                host=self.ollama_base_url,
+                api_key=self.openai_api_key,
+                base_url=self.openai_base_url,
                 **kwargs,
             )
 
@@ -85,7 +102,7 @@ class RAGManager:
             working_dir=self.working_dir,
             workspace=self.workspace,
             llm_model_func=llm_model_func,
-            llm_model_name="qwen2.5:14b",
+            llm_model_name=self.openai_model,
             embedding_func=EmbeddingFunc(
                 embedding_dim=1024,
                 max_token_size=8192,
@@ -175,7 +192,7 @@ class RAGManager:
         return {"answer": result, "mode": mode}
 
     async def insert_from_files(self, directory: str) -> None:
-        """Insert documents from a directory of text files."""
+        """Insert text/Markdown directly and binary files via built-in MinerU."""
         if not self._initialized:
             raise RuntimeError("RAG not initialized. Call initialize() first.")
 
@@ -184,28 +201,38 @@ class RAGManager:
             logger.error(f"Directory not found: {directory}")
             return
 
-        txt_files = list(doc_dir.glob("*.txt"))
-        if not txt_files:
-            logger.warning(f"No .txt files found in {directory}")
+        document_files = list_document_files(
+            doc_dir, include_mineru=self.mineru_importer.config.mineru_enabled,
+        )
+        if not document_files:
+            logger.warning(f"No supported documents found in {directory}")
             return
 
-        logger.info(f"Found {len(txt_files)} text files")
+        logger.info(f"Found {len(document_files)} documents")
+
+        binary_files = [p for p in document_files if p.suffix.lower() not in TEXT_SUFFIXES]
+        if binary_files:
+            self.mineru_importer.validate(binary_files)
 
         texts = []
         file_paths = []
 
-        for txt_file in sorted(txt_files):
+        for document_file in document_files:
+            if document_file.suffix.lower() not in TEXT_SUFFIXES:
+                continue
             try:
-                with open(txt_file, "r", encoding="utf-8") as f:
+                with open(document_file, "r", encoding="utf-8") as f:
                     content = f.read()
                     texts.append(content)
-                    file_paths.append(str(txt_file))
-                    logger.info(f"Loaded: {txt_file.name}")
+                    file_paths.append(str(document_file))
+                    logger.info(f"Loaded: {document_file.name}")
             except Exception as e:
-                logger.error(f"Error loading {txt_file}: {e}")
+                logger.error(f"Error loading {document_file}: {e}")
 
         if texts:
             await self.insert_documents(texts, file_paths=file_paths)
+        if binary_files:
+            await self.mineru_importer.insert(self.rag, binary_files)
 
     def get_status(self) -> dict:
         """Get RAG status."""

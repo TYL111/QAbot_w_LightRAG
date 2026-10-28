@@ -9,7 +9,8 @@
 - Python 3.10+
 - Node.js 18+
 - Docker（可選，但推薦用來啟動 Neo4j）
-- Ollama（用於 LLM 與 embedding 模型）
+- OpenAI API Key（用於 GPT 問答與擷取）
+- Ollama（用於 `bge-m3` embedding 模型）
 
 ### 建議的啟動方式
 
@@ -75,6 +76,9 @@ cp .env.example .env
 打開 `.env`，確認以下內容大致正確：
 
 ```env
+OPENAI_API_KEY=your_openai_api_key_here
+OPENAI_MODEL=gpt-4.1-mini
+OPENAI_BASE_URL=https://api.openai.com/v1
 OLLAMA_BASE_URL=http://localhost:11434
 NEO4J_URI=neo4j://127.0.0.1:7687
 NEO4J_USERNAME=neo4j
@@ -83,13 +87,15 @@ WORKING_DIR=./storage/dicken
 WORKSPACE=ntpc_economic
 ```
 
-> 若你已經有 `.env`，可以直接檢查是否有正確的 Neo4j / Ollama 設定。
+> 若你已經有 `.env`，請補上這三個 OpenAI 設定並確認 Neo4j / Ollama 設定。將 `OPENAI_API_KEY` 換成有效的 Key；模型可透過 `OPENAI_MODEL` 修改為帳號可用的 GPT 模型。Key 只放在本機 `.env`，不要提交到 Git。
+
+LLM 問答、關鍵字擷取與文件實體擷取會使用 GPT API；embedding 仍使用原本的 `bge-m3`（1024 維），既有向量資料可繼續使用。缺少 API Key 時後端會提示錯誤。既有 LightRAG 快取可能回傳先前模型的結果，驗證 GPT 輸出時請使用未查詢過的問題。
 
 ---
 
 ## 3. 啟動 Ollama 與 Neo4j
 
-### 3.1 啟動 Ollama
+### 3.1 啟動 Ollama（僅用於 embedding）
 
 在一個新終端機執行：
 
@@ -100,7 +106,6 @@ ollama serve
 接著下載必要模型：
 
 ```powershell
-ollama pull qwen2.5-coder:14b
 ollama pull bge-m3
 ```
 

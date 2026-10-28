@@ -12,7 +12,7 @@ Frontend (React + TypeScript)  ←→  Backend API (FastAPI)  ←→  LightRAG +
 
 - **Frontend**: React 19 + TypeScript + Tailwind CSS + i18next (Traditional Chinese)
 - **Backend**: FastAPI with async support
-- **RAG**: LightRAG with Ollama Qwen2.5 Coder 14B + BGE-M3 embeddings
+- **RAG**: LightRAG with OpenAI GPT API (default: `gpt-4.1-mini`) + Ollama BGE-M3 embeddings
 - **Storage**: Neo4j for knowledge graph + JSON for KV storage
 - **Data Source**: Web scraping from https://www.economic.ntpc.gov.tw
 
@@ -22,7 +22,8 @@ Frontend (React + TypeScript)  ←→  Backend API (FastAPI)  ←→  LightRAG +
 
 - Python 3.10+
 - Node.js 18+
-- Ollama (for LLM and embeddings: `ollama run qwen2.5-coder:14b` and `ollama run bge-m3`)
+- OpenAI API key (for GPT generation and extraction)
+- Ollama (for embeddings: `ollama pull bge-m3`)
 - Neo4j (Docker recommended)
 
 ### 1. Environment Setup
@@ -35,6 +36,8 @@ cd v2
 cp .env.example .env
 
 # Edit .env with your credentials
+# OPENAI_API_KEY=your_openai_api_key_here
+# OPENAI_MODEL=gpt-4.1-mini
 # NEO4J_PASSWORD=your_password_here
 ```
 
@@ -187,6 +190,9 @@ v2/
 
 ```env
 # LLM & Embeddings
+OPENAI_API_KEY=your_openai_api_key_here
+OPENAI_MODEL=gpt-4.1-mini
+OPENAI_BASE_URL=https://api.openai.com/v1
 OLLAMA_BASE_URL=http://localhost:11434
 
 # Storage

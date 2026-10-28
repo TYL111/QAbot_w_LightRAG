@@ -7,6 +7,7 @@ from fastapi import APIRouter, Depends, HTTPException, BackgroundTasks
 from backend.rag.rag_manager import RAGManager
 from backend.scraper.crawler import Crawler
 from backend.config import settings
+from backend.documents import TEXT_SUFFIXES, list_document_files
 from backend.dependencies import get_rag
 from backend.api.schemas import (
     QueryRequest,
@@ -92,22 +93,34 @@ async def get_documents(
             logger.info(f"No document directories found. Checked: {possible_paths}")
             return DocumentsResponse(total=0, documents=[])
 
-        for idx, doc_file in enumerate(sorted(docs_path.glob("*.txt"))):
+        for idx, doc_file in enumerate(list_document_files(
+            docs_path, include_mineru=settings.mineru_enabled,
+        )):
             try:
+                if doc_file.suffix.lower() not in TEXT_SUFFIXES:
+                    # Binary source size is not the parsed text length. Do not
+                    # decode PDF/Office/images as UTF-8 or invent chunk counts.
+                    documents.append(Document(
+                        id=f"doc_{idx}", title=doc_file.name, url="",
+                        content_length=0, chunks=0,
+                        timestamp=str(doc_file.stat().st_mtime),
+                    ))
+                    continue
                 with open(doc_file, "r", encoding="utf-8") as f:
                     content = f.read()
                     lines = content.split("\n")
 
                     # Extract title and URL with better parsing
-                    title = f"Document {idx}"
+                    title = next((line.strip()[:50] for line in lines if line.strip()), f"Document {idx}")
                     url = ""
 
                     for line in lines[:5]:  # Check first 5 lines
                         if line.startswith("Title:"):
                             title = line.replace("Title:", "").strip()
                             break
-                        elif line.strip() and not url:  # Use first non-empty line as fallback
-                            title = line.strip()[:50]
+                        elif line.startswith("# "):
+                            title = line[2:].strip()
+                            break
 
                     for line in lines[:5]:
                         if line.startswith("URL:"):

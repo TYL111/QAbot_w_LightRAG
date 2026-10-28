@@ -9,12 +9,13 @@ from urllib.parse import urldefrag, urljoin, urlparse
 
 import httpx
 from bs4 import BeautifulSoup
+from markdownify import markdownify
 
 logger = logging.getLogger(__name__)
 
 
 class Crawler:
-    """Crawl same-domain HTML pages and save cleaned text documents."""
+    """Crawl same-domain HTML pages and save Markdown documents."""
 
     def __init__(
         self,
@@ -70,22 +71,22 @@ class Crawler:
         if content is None:
             return None
 
-        # for element in content.select(
-        #     "script, style, noscript, nav, header, footer, aside, form, "
-        #     ".menu, .navbar, .navigation, .breadcrumb, .sidebar, .cookie"
-        # ):
-        #     element.decompose()
+        for element in content.select("script, style, noscript, template, .breadcrumb, #AC"):
+            element.decompose()
 
-        text = content.get_text(" ", strip=True)
-        lines = [re.sub(r"\s+", " ", line).strip() for line in text.splitlines()]
-        cleaned_text = "\n".join(line for line in lines if line)
+        base = soup.find("base", href=True)
+        base_url = urljoin(url, base["href"]) if base else url
+        for element, attribute in (("a", "href"), ("img", "src")):
+            for tag in content.find_all(element, attrs={attribute: True}):
+                tag[attribute] = urljoin(base_url, tag[attribute])
 
         links = [
-            urljoin(url, anchor["href"])
+            anchor["href"]
             for anchor in content.find_all("a", href=True)
             if anchor["href"]
         ]
-        return title.strip() or "Untitled", cleaned_text, links
+        markdown = markdownify(str(content), heading_style="ATX", bullets="-").strip()
+        return title.strip() or "Untitled", markdown, links
 
     async def _fetch(self, client: httpx.AsyncClient, url: str) -> Optional[tuple[str, str]]:
         try:
@@ -127,8 +128,8 @@ class Crawler:
                     links = []
                     extracted = self._extract_page(html, final_url)
                     if extracted is not None:
-                        title, text, links = extracted
-                        pages.append({"url": final_url, "title": title, "content": text})
+                        title, markdown, links = extracted
+                        pages.append({"url": final_url, "title": title, "content": markdown})
                         limit = self.max_pages if self.max_pages is not None else "unlimited"
                         logger.info("Crawled %s/%s: %s", len(pages), limit, final_url)
                     else:
@@ -158,19 +159,16 @@ class Crawler:
 
     def save_pages(self, pages: list[dict[str, str]]) -> list[Path]:
         self.output_dir.mkdir(parents=True, exist_ok=True)
-        for old_file in self.output_dir.glob("*.txt"):
-            old_file.unlink()
-
         saved_files = []
         for page in pages:
-            filename = hashlib.sha1(page["url"].encode("utf-8")).hexdigest()[:12] + ".txt"
+            filename = hashlib.sha1(page["url"].encode("utf-8")).hexdigest()[:12] + ".md"
             output_file = self.output_dir / filename
             output_file.write_text(
-                f"Title: {page['title']}\nURL: {page['url']}\n\n{page['content']}\n",
+                f"# {page['title']}\n\nURL: {page['url']}\n\n{page['content']}\n",
                 encoding="utf-8",
             )
             saved_files.append(output_file)
-        logger.info("Saved %s text files to %s", len(saved_files), self.output_dir)
+        logger.info("Saved %s Markdown files to %s", len(saved_files), self.output_dir)
         return saved_files
 
     async def crawl_and_save(self) -> list[Path]:

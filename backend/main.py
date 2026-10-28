@@ -34,6 +34,9 @@ async def lifespan(app: FastAPI):
             neo4j_username=settings.neo4j_username,
             neo4j_password=settings.neo4j_password,
             neo4j_database=settings.neo4j_database,
+            openai_api_key=settings.openai_api_key.get_secret_value(),
+            openai_model=settings.openai_model,
+            openai_base_url=settings.openai_base_url,
         )
         await rag_manager.initialize()
         logger.info("✅ RAG system initialized successfully")
